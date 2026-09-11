@@ -6,58 +6,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>لوحة تحكم المدرس</title>
+<title>لوحة المعلمة - لغتي لغة الضاد</title>
+
+<link rel="stylesheet" href="style.css">
 
 
 <style>
 
-body{
-margin:0;
-font-family:Tahoma,Arial;
-background:#f1f5f9;
-}
+.dashboard{
 
-
-header{
-
-background:#2563eb;
-color:white;
-padding:20px;
-font-size:25px;
-font-weight:bold;
-
-}
-
-
-.container{
-
-width:90%;
-max-width:600px;
+max-width:700px;
 margin:40px auto;
-
 background:white;
-padding:30px;
-border-radius:20px;
+padding:35px;
+border-radius:25px;
 box-shadow:0 10px 30px #ddd;
 
 }
 
 
-h1{
+.dashboard h1{
 
-color:#1e40af;
 text-align:center;
+color:#1e40af;
+margin-bottom:10px;
 
 }
 
 
-input,textarea{
+.teacher{
+
+text-align:center;
+color:#b8860b;
+font-size:20px;
+margin-bottom:30px;
+
+}
+
+
+input,textarea,select{
 
 width:100%;
 padding:15px;
 margin:10px 0;
 border:1px solid #ddd;
-border-radius:10px;
+border-radius:12px;
 font-size:16px;
 
 }
@@ -70,33 +63,37 @@ height:120px;
 }
 
 
-button{
+.add{
 
 width:100%;
-background:#2563eb;
+background:#1e40af;
 color:white;
 padding:15px;
 border:0;
-border-radius:10px;
+border-radius:12px;
 font-size:18px;
-cursor:pointer;
 
 }
 
 
-button:hover{
+.boxes{
 
-background:#1d4ed8;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:30px;
 
 }
 
 
-a{
+.box{
 
-display:block;
+flex:1;
+min-width:180px;
+background:#f8fafc;
+padding:20px;
+border-radius:15px;
 text-align:center;
-margin-top:20px;
-color:#2563eb;
 
 }
 
@@ -110,20 +107,54 @@ color:#2563eb;
 
 
 <header>
-M11 Platform - لوحة المدرس
+
+<div class="logo">
+📚 لغتي لغة الضاد
+</div>
+
+
 </header>
 
 
 
-<div class="container">
+<div class="dashboard">
 
 
 <h1>
-إضافة درس جديد
+لوحة تحكم المعلمة
 </h1>
 
 
-<input placeholder="اسم المادة">
+<div class="teacher">
+👩‍🏫 المعلمة سمر رمضان
+</div>
+
+
+
+<select>
+
+<option>
+اختر القسم
+</option>
+
+<option>
+النحو
+</option>
+
+<option>
+القراءة
+</option>
+
+<option>
+الكتابة والتعبير
+</option>
+
+<option>
+البلاغة
+</option>
+
+</select>
+
 
 
 <input placeholder="عنوان الدرس">
@@ -132,21 +163,72 @@ M11 Platform - لوحة المدرس
 <input placeholder="رابط الفيديو">
 
 
+
 <textarea placeholder="وصف الدرس"></textarea>
 
 
-<button>
+
+<button class="add">
 نشر الدرس
 </button>
 
 
-<a href="index.html">
-العودة للرئيسية
-</a>
+
+<div class="boxes">
+
+
+<div class="box">
+
+<h3>
+📚 الدروس
+</h3>
+
+<p>
+إدارة الدروس
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>
+🎥 الفيديوهات
+</h3>
+
+<p>
+إضافة الشروحات
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>
+📄 الملفات
+</h3>
+
+<p>
+رفع المذكرات
+</p>
+
+</div>
 
 
 </div>
 
+
+</div>
+
+
+<footer>
+
+لغتي لغة الضاد © 2026
+<br>
+تصميم وتطوير M11
+
+</footer>
 
 
 </body>
