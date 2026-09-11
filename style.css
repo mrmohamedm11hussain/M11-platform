@@ -2,83 +2,79 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Tahoma, Arial, sans-serif;
+    font-family:Tahoma,Arial,sans-serif;
 }
-
 
 body{
-
     background:#f8fafc;
     color:#1e293b;
-
 }
 
 
-/* الهيدر */
+/* Navbar */
 
-header{
-
+.navbar{
     background:linear-gradient(135deg,#0f172a,#1e40af);
-    color:white;
-    padding:25px 40px;
+    padding:18px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
+    flex-wrap:wrap;
 }
 
 
-.logo{
-
+.brand{
+    color:white;
     font-size:28px;
     font-weight:bold;
-
 }
 
 
+.nav-links{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
 
-/* الأزرار */
 
-button{
+.nav-links a{
 
-    background:#d4a017;
     color:white;
-    border:none;
-    padding:14px 30px;
+    text-decoration:none;
+    padding:10px 18px;
     border-radius:12px;
-    font-size:17px;
-    cursor:pointer;
     transition:.3s;
 
 }
 
 
-button:hover{
-
-    transform:scale(1.05);
+.nav-links a:hover{
     background:#b8860b;
-
 }
 
 
 
-/* القسم الرئيسي */
+/* Hero */
 
 .hero{
 
-    min-height:500px;
+    min-height:550px;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
     text-align:center;
     padding:40px;
 
     background:
     linear-gradient(
-    rgba(15,23,42,.8),
-    rgba(15,23,42,.8)
-    );
+    rgba(15,23,42,.85),
+    rgba(15,23,42,.85)
+    ),
+    url("https://images.unsplash.com/photo-1457369804613-52c61a468e7d");
+
+    background-size:cover;
+    background-position:center;
 
     color:white;
 
@@ -112,7 +108,35 @@ button:hover{
 
 
 
-/* الكروت */
+/* Buttons */
+
+.btn,
+button{
+
+    background:#b8860b;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:12px;
+    font-size:17px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+
+.btn:hover,
+button:hover{
+
+    transform:translateY(-3px);
+    background:#d4a017;
+
+}
+
+
+
+/* Cards */
 
 .cards{
 
@@ -125,14 +149,13 @@ button:hover{
 }
 
 
-
 .card{
 
     background:white;
     width:300px;
     padding:30px;
+    border-radius:25px;
     text-align:center;
-    border-radius:20px;
     box-shadow:0 10px 30px #ddd;
     transition:.3s;
 
@@ -141,10 +164,9 @@ button:hover{
 
 .card:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-12px);
 
 }
-
 
 
 .card h2{
@@ -163,31 +185,98 @@ button:hover{
 
 
 
-/* الفوتر */
+/* Stats */
+
+.stats{
+
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:40px;
+
+}
+
+
+.stats div{
+
+background:white;
+width:220px;
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px #ddd;
+
+}
+
+
+.stats h2{
+
+color:#b8860b;
+font-size:35px;
+
+}
+
+
+
+/* Teacher */
+
+.teacher-box{
+
+width:90%;
+max-width:800px;
+margin:40px auto;
+background:#0f172a;
+color:white;
+padding:40px;
+border-radius:25px;
+text-align:center;
+
+}
+
+
+.teacher-box h1{
+
+color:#facc15;
+
+}
+
+
+.teacher-box p{
+
+font-size:20px;
+line-height:2;
+
+}
+
+
+
+/* Footer */
 
 footer{
 
-    background:#0f172a;
-    color:white;
-    padding:25px;
-    text-align:center;
+background:#0f172a;
+color:white;
+padding:25px;
+text-align:center;
 
 }
 
 
 
-/* الموبايل */
+/* Mobile */
 
 @media(max-width:700px){
 
-header{
+.navbar{
 
-padding:20px;
+flex-direction:column;
+gap:20px;
 
 }
 
 
-.logo{
+.brand{
 
 font-size:22px;
 
@@ -197,6 +286,13 @@ font-size:22px;
 .hero h1{
 
 font-size:34px;
+
+}
+
+
+.hero p{
+
+font-size:18px;
 
 }
 
@@ -215,106 +311,3 @@ width:100%;
 }
 
 }
-/* شريط التنقل الاحترافي */
-
-.navbar{
-
-background:#0f172a;
-padding:15px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-
-}
-
-
-.navbar .brand{
-
-color:white;
-font-size:25px;
-font-weight:bold;
-
-}
-
-
-.nav-links{
-
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-
-}
-
-
-.nav-links a{
-
-color:white;
-text-decoration:none;
-padding:10px 15px;
-border-radius:10px;
-transition:.3s;
-
-}
-
-
-.nav-links a:hover{
-
-background:#b8860b;
-
-}
-
-
-
-/* أقسام المنصة */
-
-.section-title{
-
-text-align:center;
-margin:50px 0 20px;
-
-}
-
-
-.section-title h1{
-
-color:#1e40af;
-font-size:38px;
-
-}
-
-
-
-/* تحسين شكل الأزرار */
-
-.btn{
-
-background:#b8860b;
-color:white;
-padding:12px 25px;
-border-radius:12px;
-text-decoration:none;
-display:inline-block;
-
-}
-
-
-/* تحسين الموبايل */
-
-@media(max-width:700px){
-
-.navbar{
-
-flex-direction:column;
-gap:15px;
-
-}
-
-
-.nav-links{
-
-justify-content:center;
-
-}
-
-    }
