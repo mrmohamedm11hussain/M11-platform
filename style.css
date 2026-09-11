@@ -215,3 +215,106 @@ width:100%;
 }
 
 }
+/* شريط التنقل الاحترافي */
+
+.navbar{
+
+background:#0f172a;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+
+}
+
+
+.navbar .brand{
+
+color:white;
+font-size:25px;
+font-weight:bold;
+
+}
+
+
+.nav-links{
+
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+
+}
+
+
+.nav-links a{
+
+color:white;
+text-decoration:none;
+padding:10px 15px;
+border-radius:10px;
+transition:.3s;
+
+}
+
+
+.nav-links a:hover{
+
+background:#b8860b;
+
+}
+
+
+
+/* أقسام المنصة */
+
+.section-title{
+
+text-align:center;
+margin:50px 0 20px;
+
+}
+
+
+.section-title h1{
+
+color:#1e40af;
+font-size:38px;
+
+}
+
+
+
+/* تحسين شكل الأزرار */
+
+.btn{
+
+background:#b8860b;
+color:white;
+padding:12px 25px;
+border-radius:12px;
+text-decoration:none;
+display:inline-block;
+
+}
+
+
+/* تحسين الموبايل */
+
+@media(max-width:700px){
+
+.navbar{
+
+flex-direction:column;
+gap:15px;
+
+}
+
+
+.nav-links{
+
+justify-content:center;
+
+}
+
+    }
