@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+
+<circle cx="100" cy="100" r="95" fill="#1e40af"/>
+
+<ellipse cx="100" cy="115" rx="55" ry="45" fill="#facc15"/>
+
+<circle cx="120" cy="80" r="35" fill="#facc15"/>
+
+<circle cx="135" cy="75" r="6" fill="#0f172a"/>
+
+<polygon points="150,85 190,100 150,110" fill="#f97316"/>
+
+<path d="M70 120 Q40 80 30 130 Q60 150 90 140"
+fill="#38bdf8"/>
+
+<path d="M90 155 Q120 180 150 150"
+stroke="white"
+stroke-width="8"
+fill="none"/>
+
+</svg>
