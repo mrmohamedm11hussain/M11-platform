@@ -10,55 +10,58 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 <style>
 
-.student-page{
-    width:90%;
-    max-width:1000px;
-    margin:40px auto;
-}
+.student-container{
 
-
-.welcome{
-
-    background:linear-gradient(135deg,#1e40af,#0f172a);
-    color:white;
-    padding:35px;
-    border-radius:25px;
-    text-align:center;
+width:90%;
+max-width:1100px;
+margin:40px auto;
 
 }
 
 
-.welcome h1{
+/* الترحيب */
 
-font-size:35px;
+.welcome-card{
 
-}
-
-
-.profile{
-
-background:white;
-padding:25px;
-margin-top:25px;
-border-radius:20px;
-box-shadow:0 10px 30px #ddd;
+background:linear-gradient(135deg,#0f172a,#1e40af);
+color:white;
+padding:40px;
+border-radius:30px;
 
 }
 
 
-.modules{
+.welcome-card h1{
+
+font-size:38px;
+
+}
+
+
+.welcome-card span{
+
+color:#facc15;
+
+}
+
+
+
+/* الاحصائيات */
+
+.student-stats{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:30px;
 
 }
 
 
-.module{
+.stat-card{
 
 background:white;
 padding:25px;
@@ -69,18 +72,85 @@ text-align:center;
 }
 
 
-.module h2{
+.stat-card h2{
 
+color:#1e40af;
+font-size:35px;
+
+}
+
+
+
+/* الدروس */
+
+.dashboard-title{
+
+margin-top:40px;
 color:#1e40af;
 
 }
 
 
-.module button{
+.lesson-list{
 
-margin-top:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 
 }
+
+
+.student-lesson{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px #ddd;
+
+}
+
+
+.student-lesson h3{
+
+color:#b8860b;
+
+}
+
+
+.student-lesson a{
+
+display:inline-block;
+margin-top:15px;
+background:#1e40af;
+color:white;
+padding:10px 25px;
+border-radius:10px;
+text-decoration:none;
+
+}
+
+
+
+/* التقدم */
+
+.progress{
+
+background:#e2e8f0;
+height:15px;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+
+.progress div{
+
+height:100%;
+width:65%;
+background:#b8860b;
+
+}
+
 
 
 </style>
@@ -88,128 +158,198 @@ margin-top:15px;
 </head>
 
 
+
 <body>
 
 
-<header>
 
-<div class="logo">
+<nav class="navbar">
+
+<div class="brand">
 📚 لغتي لغة الضاد
 </div>
 
-</header>
+
+<div class="nav-links">
+
+<a href="index.html">الرئيسية</a>
+
+<a href="courses.html">الدروس</a>
+
+</div>
+
+</nav>
 
 
 
-<div class="student-page">
+
+<div class="student-container">
 
 
-<div class="welcome">
+
+<div class="welcome-card">
 
 <h1>
-أهلاً بك في منصة لغتي لغة الضاد
+أهلاً بك يا طالب 👋
 </h1>
 
 <p>
-تعلم اللغة العربية مع المعلمة سمر رمضان
+استمر في التعلم مع المعلمة
+<span>سمر رمضان</span>
 </p>
 
 </div>
 
 
 
-<div class="profile">
+
+<div class="student-stats">
+
+
+<div class="stat-card">
 
 <h2>
-👨‍🎓 بيانات الطالب
+12
 </h2>
 
 <p>
-الاسم: الطالب
-</p>
-
-<p>
-المستوى: الصف الدراسي
+درس مكتمل
 </p>
 
 </div>
 
 
-
-<div class="modules">
-
-
-<div class="module">
+<div class="stat-card">
 
 <h2>
-📖 النحو
+65%
 </h2>
 
 <p>
-دروس القواعد العربية
+نسبة الإنجاز
 </p>
-
-<button>
-ابدأ الدرس
-</button>
 
 </div>
 
 
 
-<div class="module">
+<div class="stat-card">
 
 <h2>
-📚 القراءة
+5
 </h2>
 
 <p>
-قصص ونصوص وتدريبات
+اختبارات
 </p>
-
-<button>
-ابدأ الدرس
-</button>
 
 </div>
 
 
 
-<div class="module">
+</div>
 
-<h2>
-✍️ التعبير
+
+
+
+<h2 class="dashboard-title">
+📚 دروسي الحالية
 </h2>
 
+
+
+<div class="lesson-list">
+
+
+
+<div class="student-lesson">
+
+<h3>
+النحو
+</h3>
+
 <p>
-تعلم الكتابة بطريقة صحيحة
+المبتدأ والخبر والجملة الاسمية
 </p>
 
-<button>
-ابدأ الدرس
-</button>
+<a href="lesson.html">
+متابعة الدرس
+</a>
 
 </div>
 
 
+
+<div class="student-lesson">
+
+<h3>
+القراءة
+</h3>
+
+<p>
+مهارات الفهم والتحليل
+</p>
+
+<a href="lesson.html">
+متابعة الدرس
+</a>
+
 </div>
 
 
+
+<div class="student-lesson">
+
+<h3>
+التعبير
+</h3>
+
+<p>
+كتابة موضوعات بطريقة صحيحة
+</p>
+
+<a href="lesson.html">
+متابعة الدرس
+</a>
+
 </div>
+
+
+
+</div>
+
+
+
+<h2 class="dashboard-title">
+📈 تقدمك في المنصة
+</h2>
+
+
+<div class="progress">
+
+<div></div>
+
+</div>
+
+
+
+</div>
+
 
 
 
 <footer>
 
 لغتي لغة الضاد © 2026
+
 <br>
-المعلمة سمر رمضان
-<br>
-تصميم وتطوير M11
+
+المعلمة سمر رمضان | تطوير M11
 
 </footer>
 
 
+
 </body>
 
-</html>
+</html> 
