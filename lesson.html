@@ -6,14 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>درس اللغة العربية - لغتي لغة الضاد</title>
+<title>درس اللغة العربية | لغتي لغة الضاد</title>
 
 <link rel="stylesheet" href="style.css">
 
 
 <style>
 
-.lesson-page{
+.lesson-container{
 
 width:90%;
 max-width:1000px;
@@ -22,18 +22,19 @@ margin:40px auto;
 }
 
 
-.lesson-header{
+
+.lesson-cover{
 
 background:linear-gradient(135deg,#0f172a,#1e40af);
 color:white;
-padding:40px;
-border-radius:25px;
+padding:45px;
+border-radius:30px;
 text-align:center;
 
 }
 
 
-.lesson-header h1{
+.lesson-cover h1{
 
 font-size:40px;
 
@@ -49,20 +50,22 @@ font-size:20px;
 
 
 
-.content-box{
+.box{
 
 background:white;
-margin-top:30px;
 padding:30px;
 border-radius:25px;
+margin-top:30px;
 box-shadow:0 10px 30px #ddd;
 
 }
 
 
-.content-box h2{
+
+.box h2{
 
 color:#1e40af;
+margin-bottom:20px;
 
 }
 
@@ -77,13 +80,33 @@ display:flex;
 justify-content:center;
 align-items:center;
 color:white;
-font-size:30px;
+font-size:28px;
+
+}
+
+
+
+.summary li{
+
+margin:15px;
+font-size:18px;
 
 }
 
 
 
 .file{
+
+background:#f8fafc;
+padding:15px;
+border-radius:15px;
+margin:10px 0;
+
+}
+
+
+
+.question{
 
 background:#f8fafc;
 padding:20px;
@@ -94,84 +117,121 @@ margin-top:15px;
 
 
 
-.quiz button{
+.finish{
 
-margin-top:15px;
+margin-top:20px;
+width:100%;
 
 }
 
 
 </style>
 
-
 </head>
+
 
 
 <body>
 
 
-<header>
 
-<div class="logo">
+<nav class="navbar">
+
+<div class="brand">
 📚 لغتي لغة الضاد
 </div>
 
-</header>
+
+<div class="nav-links">
+
+<a href="student.html">
+لوحة الطالب
+</a>
+
+<a href="courses.html">
+الدروس
+</a>
+
+</div>
+
+</nav>
 
 
 
-<div class="lesson-page">
+
+<div class="lesson-container">
 
 
 
-<div class="lesson-header">
+<div class="lesson-cover">
 
 <h1>
-درس النحو: المبتدأ والخبر
+المبتدأ والخبر
 </h1>
 
 <p class="teacher-name">
 👩‍🏫 المعلمة سمر رمضان
 </p>
 
-</div>
-
-
-
-<div class="content-box">
-
-<h2>
-🎥 شرح الدرس
-</h2>
-
-<div class="video">
-
-مكان فيديو الشرح
-
-</div>
-
-</div>
-
-
-
-
-<div class="content-box">
-
-<h2>
-📖 ملخص الدرس
-</h2>
-
 <p>
-في هذا الدرس نتعلم المبتدأ والخبر
-وكيفية استخدامهما في الجملة الاسمية
-مع أمثلة وتدريبات متنوعة.
+قسم النحو - اللغة العربية
 </p>
 
 </div>
 
 
 
-<div class="content-box">
+
+<div class="box">
+
+<h2>
+🎥 فيديو الشرح
+</h2>
+
+
+<div class="video">
+
+مكان فيديو الدرس
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="box">
+
+<h2>
+📖 ملخص الدرس
+</h2>
+
+
+<ul class="summary">
+
+<li>
+الجملة الاسمية تبدأ باسم.
+</li>
+
+<li>
+المبتدأ يكون غالبًا مرفوعًا.
+</li>
+
+<li>
+الخبر يكمل معنى الجملة.
+</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="box">
 
 <h2>
 📄 ملفات الدرس
@@ -179,12 +239,12 @@ margin-top:15px;
 
 
 <div class="file">
-📘 ملخص الدرس PDF
+📘 ملخص المبتدأ والخبر PDF
 </div>
 
 
 <div class="file">
-📝 واجب منزلي
+📝 واجب تدريبي
 </div>
 
 
@@ -193,7 +253,8 @@ margin-top:15px;
 
 
 
-<div class="content-box quiz">
+
+<div class="box">
 
 
 <h2>
@@ -201,23 +262,48 @@ margin-top:15px;
 </h2>
 
 
-<p>
-اختر الإجابة الصحيحة:
-</p>
 
+<div class="question">
 
-<p>
-الجملة الاسمية تبدأ بـ:
-</p>
+ما نوع الجملة: "العلم نور"؟
 
+<br><br>
 
 <button>
-فعل
+جملة اسمية
 </button>
 
+<button>
+جملة فعلية
+</button>
+
+</div>
+
+
+
+
+<div class="question">
+
+المبتدأ يكون:
+
+<br><br>
 
 <button>
-اسم
+مرفوعًا
+</button>
+
+<button>
+منصوبًا
+</button>
+
+</div>
+
+
+
+<button class="finish">
+
+✅ إتمام الدرس
+
 </button>
 
 
@@ -226,21 +312,24 @@ margin-top:15px;
 
 
 
+
 </div>
+
 
 
 
 <footer>
 
 لغتي لغة الضاد © 2026
+
 <br>
-المعلمة سمر رمضان
-<br>
-تصميم وتطوير M11
+
+المعلمة سمر رمضان | تطوير M11
 
 </footer>
 
 
+
 </body>
 
-  </html>
+</html> 
