@@ -311,3 +311,157 @@ width:100%;
 }
 
 }
+/* ===== حركات احترافية للمنصة ===== */
+
+
+/* ظهور العناصر من تحت */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+
+.hero h1,
+.hero h2,
+.hero p,
+.hero .btn{
+
+animation:fadeUp 1s ease;
+
+}
+
+
+
+/* حركة الكروت */
+
+.card,
+.student-lesson,
+.subject,
+.stat,
+.lesson-card{
+
+animation:fadeUp .7s ease;
+transition:.4s;
+
+}
+
+
+
+.card:hover,
+.student-lesson:hover,
+.subject:hover,
+.stat:hover,
+.lesson-card:hover{
+
+transform:translateY(-12px) scale(1.03);
+
+}
+
+
+
+/* الأزرار */
+
+.btn,
+button{
+
+position:relative;
+overflow:hidden;
+
+}
+
+
+
+.btn:hover,
+button:hover{
+
+box-shadow:0 10px 25px rgba(184,134,11,.4);
+
+}
+
+
+
+
+/* تأثير لمعان الزر */
+
+.btn::after,
+button::after{
+
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:50%;
+height:100%;
+background:rgba(255,255,255,.3);
+transform:skewX(-25deg);
+transition:.5s;
+
+}
+
+
+.btn:hover::after,
+button:hover::after{
+
+left:120%;
+
+}
+
+
+
+/* حركة الشعار */
+
+.brand{
+
+animation:floatLogo 3s infinite ease-in-out;
+
+}
+
+
+
+@keyframes floatLogo{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-5px);
+
+}
+
+}
+
+
+
+
+/* خلفية ناعمة للأقسام */
+
+.section-title{
+
+animation:fadeUp 1s ease;
+
+}
+
+
+
+/* تحسين شكل الصفحة */
+
+body{
+
+overflow-x:hidden;
+
+}
