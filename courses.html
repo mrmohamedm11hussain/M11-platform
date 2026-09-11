@@ -10,196 +10,273 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 <style>
 
-body{
-background:#f8fafc;
+.page-title{
+
+text-align:center;
+padding:50px 20px;
+
 }
 
 
-.title{
+.page-title h1{
 
-text-align:center;
+font-size:42px;
+color:#1e40af;
+
+}
+
+
+.page-title p{
+
+font-size:20px;
+
+}
+
+
+
+.lesson-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 padding:40px;
 
 }
 
 
-.title h1{
 
-color:#1e40af;
-font-size:40px;
-
-}
-
-
-.courses{
-
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-padding:30px;
-
-}
-
-
-.lesson{
+.lesson-card{
 
 background:white;
-width:300px;
+border-radius:25px;
 padding:30px;
-border-radius:20px;
 box-shadow:0 10px 30px #ddd;
 text-align:center;
+transition:.3s;
 
 }
 
 
-.lesson h2{
+.lesson-card:hover{
 
-color:#b8860b;
-
-}
-
-
-.lesson p{
-
-line-height:1.8;
+transform:translateY(-10px);
 
 }
 
 
-.lesson button{
+.lesson-icon{
 
+font-size:50px;
+
+}
+
+
+.lesson-card h2{
+
+color:#1e40af;
+margin:15px 0;
+
+}
+
+
+.level{
+
+background:#f8fafc;
+padding:8px;
+border-radius:10px;
+display:inline-block;
+margin:10px;
+
+}
+
+
+
+.lesson-card a{
+
+display:inline-block;
 margin-top:20px;
+background:#b8860b;
+color:white;
+text-decoration:none;
+padding:12px 30px;
+border-radius:12px;
 
 }
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
-<header>
+<nav class="navbar">
 
-<div class="logo">
+<div class="brand">
 📚 لغتي لغة الضاد
 </div>
 
-<button onclick="location.href='login.html'">
-دخول
-</button>
 
-</header>
+<div class="nav-links">
 
-
-
-<div class="title">
-
-<h1>
-دروس اللغة العربية
-</h1>
-
-<p>
-مع المعلمة سمر رمضان
-</p>
+<a href="index.html">الرئيسية</a>
+<a href="portal.html">الدخول</a>
+<a href="about.html">عن المنصة</a>
 
 </div>
 
+</nav>
 
 
-<div class="courses">
+
+<section class="page-title">
+
+<h1>
+مكتبة اللغة العربية
+</h1>
+
+<p>
+جميع الدروس مقدمة بواسطة المعلمة سمر رمضان
+</p>
+
+</section>
 
 
-<div class="lesson">
+
+
+<section class="lesson-grid">
+
+
+
+<div class="lesson-card">
+
+<div class="lesson-icon">
+📖
+</div>
 
 <h2>
 النحو
 </h2>
 
+<span class="level">
+جميع الصفوف
+</span>
+
 <p>
-تعلم قواعد اللغة العربية بطريقة سهلة ومنظمة.
+شرح القواعد النحوية بطريقة سهلة مع أمثلة وتدريبات.
 </p>
 
-<button>
-عرض الدروس
-</button>
+<a href="lesson.html">
+دخول القسم
+</a>
 
 </div>
 
 
 
-<div class="lesson">
+<div class="lesson-card">
+
+<div class="lesson-icon">
+📚
+</div>
 
 <h2>
 القراءة
 </h2>
 
+<span class="level">
+ابتدائي
+</span>
+
 <p>
 تنمية مهارات القراءة والفهم والتحليل.
 </p>
 
-<button>
-عرض الدروس
-</button>
+<a href="lesson.html">
+دخول القسم
+</a>
 
 </div>
 
 
 
-<div class="lesson">
+
+<div class="lesson-card">
+
+<div class="lesson-icon">
+✍️
+</div>
 
 <h2>
-الكتابة والتعبير
+التعبير والكتابة
 </h2>
 
+<span class="level">
+ابتدائي وإعدادي
+</span>
+
 <p>
-تعلم كتابة موضوعات التعبير بأسلوب مميز.
+تعلم كتابة موضوعات التعبير بأسلوب قوي.
 </p>
 
-<button>
-عرض الدروس
-</button>
+<a href="lesson.html">
+دخول القسم
+</a>
 
 </div>
 
 
 
-<div class="lesson">
+
+<div class="lesson-card">
+
+<div class="lesson-icon">
+✨
+</div>
 
 <h2>
 البلاغة
 </h2>
 
+<span class="level">
+إعدادي
+</span>
+
 <p>
-شرح الصور الجمالية وأساليب اللغة العربية.
+فهم جماليات اللغة العربية وأساليبها.
 </p>
 
-<button>
-عرض الدروس
-</button>
+<a href="lesson.html">
+دخول القسم
+</a>
 
 </div>
 
 
-</div>
+
+</section>
+
 
 
 
 <footer>
 
-لغتي لغة الضاد © 2026  
+لغتي لغة الضاد © 2026
+
 <br>
-إعداد وتطوير M11
+
+المعلمة سمر رمضان | تطوير M11
 
 </footer>
 
 
 </body>
 
-</html>
+</html> 
