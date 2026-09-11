@@ -6,99 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>الدخول - لغتي لغة الضاد</title>
+<title>تسجيل الدخول - لغتي لغة الضاد</title>
 
 <link rel="stylesheet" href="style.css">
-
-
-<style>
-
-.login-page{
-
-min-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:40px;
-
-}
-
-
-.login-card{
-
-background:white;
-width:380px;
-padding:40px;
-border-radius:30px;
-box-shadow:0 15px 40px #ddd;
-text-align:center;
-
-}
-
-
-.logo-big{
-
-font-size:60px;
-margin-bottom:15px;
-
-}
-
-
-.login-card h1{
-
-color:#1e40af;
-margin-bottom:10px;
-
-}
-
-
-.login-card p{
-
-line-height:1.8;
-color:#64748b;
-
-}
-
-
-.role{
-
-background:#f8fafc;
-padding:20px;
-margin-top:20px;
-border-radius:20px;
-transition:.3s;
-
-}
-
-
-.role:hover{
-
-transform:translateY(-5px);
-
-}
-
-
-.role h2{
-
-color:#1e40af;
-
-}
-
-
-.role a{
-
-display:inline-block;
-margin-top:15px;
-background:#b8860b;
-color:white;
-padding:12px 30px;
-border-radius:12px;
-text-decoration:none;
-
-}
-
-
-</style>
 
 </head>
 
@@ -112,22 +22,11 @@ text-decoration:none;
 📚 لغتي لغة الضاد
 </div>
 
-
-<div class="nav-links">
-
-<a href="index.html">الرئيسية</a>
-<a href="courses.html">الدروس</a>
-
-</div>
-
-
 </nav>
-<a href="contact.html">تواصل</a>
-<a href="support.html">الدعم الفني</a>
 
 
 
-<div class="login-page">
+<section class="login-page">
 
 
 <div class="login-card">
@@ -139,57 +38,49 @@ text-decoration:none;
 
 
 <h1>
-لغتي لغة الضاد
+أهلاً بك في المنصة
 </h1>
 
 
 <p>
-اختر نوع الحساب للدخول إلى المنصة
+سجل دخولك للبدء بالتعلم
 </p>
 
 
 
-<div class="role">
-
-<h2>
-👨‍🎓 الطالب
-</h2>
-
-<p>
-الدخول للدروس والواجبات والاختبارات
-</p>
-
-<a href="student.html">
-دخول الطالب
-</a>
-
-</div>
+<input 
+id="username"
+placeholder="اكتب اسمك"
+>
 
 
 
+<select id="userType">
 
-<div class="role">
+<option value="student">
+طالب
+</option>
 
-<h2>
-👩‍🏫 المعلمة
-</h2>
 
-<p>
-إدارة الدروس والمحتوى التعليمي
-</p>
+<option value="teacher">
+معلمة
+</option>
 
-<a href="teacher.html">
-دخول المعلمة
-</a>
 
-</div>
+</select>
+
+
+
+<button onclick="login()">
+دخول
+</button>
 
 
 
 </div>
 
 
-</div>
+</section>
 
 
 
@@ -199,10 +90,13 @@ text-decoration:none;
 
 <br>
 
-المعلمة سمر رمضان | تطوير M11
+بإشراف المعلمة سمر رمضان | تطوير M11
 
 </footer>
 
+
+
+<script src="login-system.js"></script>
 
 
 </body>
