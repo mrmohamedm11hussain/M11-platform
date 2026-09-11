@@ -507,3 +507,126 @@ background:#eff6ff;
 box-shadow:0 20px 40px #cbd5e1;
 
 }
+/* ===== تصميم احترافي للواجهة الرئيسية ===== */
+
+
+.hero{
+
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(
+135deg,
+rgba(15,23,42,.95),
+rgba(30,64,175,.9)
+);
+
+}
+
+
+
+.hero::before{
+
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+background:#facc15;
+border-radius:50%;
+top:-100px;
+left:-100px;
+opacity:.15;
+animation:moveCircle 6s infinite alternate;
+
+}
+
+
+
+.hero::after{
+
+content:"";
+position:absolute;
+width:250px;
+height:250px;
+background:#38bdf8;
+border-radius:50%;
+bottom:-100px;
+right:-80px;
+opacity:.15;
+animation:moveCircle 7s infinite alternate;
+
+}
+
+
+
+@keyframes moveCircle{
+
+from{
+
+transform:translate(0,0);
+
+}
+
+to{
+
+transform:translate(40px,30px);
+
+}
+
+}
+
+
+
+
+/* الكروت بشكل زجاجي */
+
+.card,
+.lesson-card,
+.student-lesson{
+
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(10px);
+
+}
+
+
+
+.card:hover{
+
+box-shadow:
+0 20px 50px rgba(30,64,175,.25);
+
+}
+
+
+
+/* ظهور تدريجي */
+
+.cards > *,
+.stats > *,
+.subjects > *{
+
+animation:show .8s ease both;
+
+}
+
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
