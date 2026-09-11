@@ -352,7 +352,44 @@ background:#b8860b;
 <script>
 loadStudent();
 </script>
+<script src="data.js"></script>
+<script>
 
+let box = document.querySelector(".lesson-list");
+
+
+courses.forEach(course=>{
+
+
+box.innerHTML += `
+
+<div class="student-lesson">
+
+<h3>${course.title}</h3>
+
+<p>
+${course.grade}
+<br>
+${course.subject}
+</p>
+
+<p>
+${course.description}
+</p>
+
+
+<a href="lesson.html">
+مشاهدة الدرس
+</a>
+
+</div>
+
+`;
+
+});
+
+
+</script>
 </body>
 
 </html> 
