@@ -4,139 +4,157 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>الكورسات | لغتي لغة الضاد</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="style.css">
+<title>
+المراحل الدراسية | لغتي لغة الضاد
+</title>
+
+
+<link rel="stylesheet" href="style-new.css">
 
 
 <style>
 
+.courses-page{
 
-.courses-header{
-
-padding:70px 20px;
-text-align:center;
-background:linear-gradient(135deg,#0f172a,#1e40af);
-color:white;
+padding:60px 5%;
 
 }
 
 
-.courses-header h1{
+
+.title{
+
+text-align:center;
+
+margin-bottom:50px;
+
+}
+
+
+.title h1{
 
 font-size:45px;
-margin-bottom:15px;
+
+color:#1e40af;
 
 }
 
 
-.courses-header p{
+.title p{
 
 font-size:20px;
-line-height:2;
+
+color:#475569;
 
 }
 
 
 
-.courses-container{
 
-width:90%;
-max-width:1200px;
-margin:50px auto;
+.courses-grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:35px;
 
 }
 
 
 
-.course-card{
+.course{
 
 background:white;
-border-radius:30px;
-padding:35px 25px;
+
+padding:35px;
+
+border-radius:35px;
+
 text-align:center;
 
-box-shadow:0 15px 35px rgba(0,0,0,.1);
+box-shadow:0 15px 40px #ddd;
 
 transition:.4s;
 
 position:relative;
+
 overflow:hidden;
 
 }
 
 
 
-.course-card:hover{
-
-transform:translateY(-12px);
-
-}
-
-
-
-.course-card::before{
+.course::before{
 
 content:"";
+
 position:absolute;
-top:0;
-right:0;
-width:100%;
-height:6px;
 
-background:linear-gradient(90deg,#1e40af,#facc15);
+width:100px;
+
+height:100px;
+
+background:#facc15;
+
+border-radius:50%;
+
+top:-40px;
+
+right:-40px;
+
+opacity:.4;
 
 }
 
 
 
-.course-icon{
+.course:hover{
 
-font-size:60px;
-margin-bottom:20px;
+transform:translateY(-15px);
+
+box-shadow:0 25px 50px #bbb;
 
 }
 
 
 
-.course-card h2{
+.course h2{
 
 color:#1e40af;
+
 font-size:28px;
 
 }
 
 
 
-.course-card p{
+.course p{
 
-color:#64748b;
-font-size:17px;
+margin:20px 0;
+
 line-height:2;
+
+color:#475569;
 
 }
 
 
 
-.course-btn{
+.enter{
 
 display:inline-block;
 
-margin-top:20px;
-
-background:#d4a017;
+background:#1e40af;
 
 color:white;
 
-padding:14px 35px;
+padding:12px 35px;
 
-border-radius:15px;
+border-radius:20px;
 
 text-decoration:none;
 
@@ -146,40 +164,9 @@ transition:.3s;
 
 
 
-.course-btn:hover{
+.enter:hover{
 
-background:#1e40af;
-
-transform:scale(1.05);
-
-}
-
-
-
-.teacher-section{
-
-width:90%;
-max-width:900px;
-margin:40px auto;
-
-background:#0f172a;
-
-color:white;
-
-padding:40px;
-
-border-radius:30px;
-
-text-align:center;
-
-}
-
-
-.teacher-section h2{
-
-color:#facc15;
-
-font-size:32px;
+background:#d4a017;
 
 }
 
@@ -200,34 +187,22 @@ font-size:32px;
 
 <div class="brand">
 
-📚 لغتي لغة الضاد
+<img src="logo.svg">
+
+لغتي لغة الضاد
 
 </div>
 
 
-
 <div class="nav-links">
 
+<a href="index.html">الرئيسية</a>
 
-<a href="index.html">
-الرئيسية
-</a>
+<a href="courses.html">المراحل</a>
 
+<a href="login.html">الدخول</a>
 
-<a href="courses.html">
-الكورسات
-</a>
-
-
-<a href="login.html">
-الدخول
-</a>
-
-
-<a href="support.html">
-الدعم
-</a>
-
+<a href="support.html">الدعم</a>
 
 </div>
 
@@ -237,50 +212,48 @@ font-size:32px;
 
 
 
-<section class="courses-header">
+
+<section class="courses-page">
+
+
+<div class="title">
 
 
 <h1>
-📚 كورسات اللغة العربية
+
+📚 المراحل الدراسية
+
 </h1>
 
 
 <p>
-من الصف الرابع الابتدائي
-<br>
-إلى الصف الثالث المتوسط
+
+اختر صفك وابدأ رحلة تعلم اللغة العربية
+
 </p>
 
 
-</section>
-
-
-
-
-
-<section class="courses-container">
-
-
-
-<div class="course-card">
-
-<div class="course-icon">
-📘
 </div>
 
+
+
+
+
+<div class="courses-grid">
+
+
+
+<div class="course">
+
 <h2>
-الصف الرابع الابتدائي
+📘 الصف الرابع الابتدائي
 </h2>
 
 <p>
-النحو<br>
-القراءة<br>
-الإملاء<br>
-التعبير
+النحو - القراءة - التعبير - الإملاء
 </p>
 
-
-<a class="course-btn" href="grade4.html">
+<a class="enter" href="grade4.html">
 دخول الصف
 </a>
 
@@ -290,164 +263,113 @@ font-size:32px;
 
 
 
-<div class="course-card">
 
-<div class="course-icon">
-📗
-</div>
+<div class="course">
 
 <h2>
-الصف الخامس الابتدائي
+📗 الصف الخامس الابتدائي
 </h2>
 
 <p>
-شرح الدروس<br>
-التدريبات<br>
-المراجعات
+شرح ومراجعات واختبارات اللغة العربية
 </p>
 
-
-<a class="course-btn" href="grade5.html">
+<a class="enter" href="grade5.html">
 دخول الصف
 </a>
 
-
 </div>
 
 
 
 
 
-<div class="course-card">
 
-<div class="course-icon">
-📙
-</div>
+<div class="course">
 
 <h2>
-الصف السادس الابتدائي
+📙 الصف السادس الابتدائي
 </h2>
 
 <p>
-شرح شامل<br>
-مراجعات<br>
-اختبارات
+تأسيس ومراجعة شاملة قبل الامتحانات
 </p>
 
-
-<a class="course-btn" href="grade6.html">
+<a class="enter" href="grade6.html">
 دخول الصف
 </a>
 
-
 </div>
 
 
 
 
 
-<div class="course-card">
 
-<div class="course-icon">
-📕
-</div>
+
+<div class="course">
 
 <h2>
-الأول المتوسط
+📕 الصف الأول المتوسط
 </h2>
 
 <p>
-قواعد اللغة العربية<br>
-النصوص<br>
-البلاغة
+قواعد اللغة العربية والمهارات
 </p>
 
-
-<a class="course-btn" href="grade7.html">
+<a class="enter" href="grade7.html">
 دخول الصف
 </a>
 
-
 </div>
 
 
 
 
 
-<div class="course-card">
 
-<div class="course-icon">
-📒
-</div>
+
+<div class="course">
 
 <h2>
-الثاني المتوسط
+📔 الصف الثاني المتوسط
 </h2>
 
 <p>
-شرح متقدم<br>
-تدريبات<br>
-اختبارات
+دروس متقدمة وتدريبات
 </p>
 
-
-<a class="course-btn" href="grade8.html">
+<a class="enter" href="grade8.html">
 دخول الصف
 </a>
 
-
 </div>
 
 
 
 
 
-<div class="course-card">
 
-<div class="course-icon">
-📓
-</div>
+<div class="course">
 
 <h2>
-الثالث المتوسط
+📒 الصف الثالث المتوسط
 </h2>
 
 <p>
-مراجعة نهائية<br>
-مهارات اللغة<br>
-نماذج اختبارات
+مراجعات نهائية واختبارات
 </p>
 
-
-<a class="course-btn" href="grade9.html">
+<a class="enter" href="grade9.html">
 دخول الصف
 </a>
 
-
 </div>
 
 
 
-</section>
 
-
-
-
-
-<section class="teacher-section">
-
-
-<h2>
-👩‍🏫 إشراف المعلمة سمر رمضان
-</h2>
-
-
-<p>
-معلمة اللغة العربية
-<br>
-تقدم شرحًا مبسطًا ومتميزًا لمناهج اللغة العربية
-</p>
-
+</div>
 
 </section>
 
@@ -457,17 +379,19 @@ font-size:32px;
 
 <footer>
 
-لغتي لغة الضاد © 2026
+منصة لغتي لغة الضاد
 
 <br>
 
-تطوير M11
+بإشراف المعلمة سمر رمضان
+
+<br>
+
+تطوير M11 © 2026
 
 </footer>
 
 
-
-
 </body>
 
-  </html> 
+</html>
