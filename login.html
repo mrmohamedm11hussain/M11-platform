@@ -4,11 +4,141 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>تسجيل الدخول - لغتي لغة الضاد</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="style.css">
+<title>
+تسجيل الدخول | لغتي لغة الضاد
+</title>
+
+<link rel="stylesheet" href="style-new.css">
+
+
+<style>
+
+.login-section{
+
+min-height:80vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+}
+
+
+
+.login-box{
+
+background:white;
+
+width:100%;
+
+max-width:450px;
+
+padding:45px;
+
+border-radius:35px;
+
+box-shadow:0 20px 50px #ddd;
+
+text-align:center;
+
+}
+
+
+
+.login-box img{
+
+width:100px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.login-box h1{
+
+color:#1e40af;
+
+font-size:35px;
+
+}
+
+
+
+.login-box p{
+
+color:#64748b;
+
+line-height:2;
+
+margin:15px;
+
+}
+
+
+
+.login-box input,
+.login-box select{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+}
+
+
+
+.login-btn{
+
+width:100%;
+
+border:none;
+
+cursor:pointer;
+
+background:#1e40af;
+
+color:white;
+
+padding:15px;
+
+border-radius:20px;
+
+font-size:18px;
+
+margin-top:15px;
+
+transition:.3s;
+
+}
+
+
+
+.login-btn:hover{
+
+background:#d4a017;
+
+}
+
+
+
+</style>
+
 
 </head>
 
@@ -18,33 +148,52 @@
 
 <nav class="navbar">
 
+
 <div class="brand">
-📚 لغتي لغة الضاد
+
+<img src="logo.svg">
+
+لغتي لغة الضاد
+
 </div>
+
+
+<div class="nav-links">
+
+<a href="index.html">الرئيسية</a>
+
+<a href="courses.html">الكورسات</a>
+
+<a href="support.html">الدعم</a>
+
+</div>
+
 
 </nav>
 
 
 
-<section class="login-page">
 
 
-<div class="login-card">
+<section class="login-section">
 
 
-<div class="logo-big">
-📚
-</div>
+<div class="login-box">
+
+
+<img src="logo.svg">
+
 
 
 <h1>
-أهلاً بك في المنصة
+أهلاً بك 👋
 </h1>
 
 
 <p>
-سجل دخولك للبدء بالتعلم
+ادخل إلى منصة لغتي لغة الضاد
 </p>
+
 
 
 
@@ -58,12 +207,12 @@ placeholder="اكتب اسمك"
 <select id="userType">
 
 <option value="student">
-طالب
+👨‍🎓 طالب
 </option>
 
 
 <option value="teacher">
-معلمة
+👩‍🏫 معلمة
 </option>
 
 
@@ -71,8 +220,10 @@ placeholder="اكتب اسمك"
 
 
 
-<button onclick="login()">
+<button class="login-btn" onclick="login()">
+
 دخول
+
 </button>
 
 
@@ -84,15 +235,22 @@ placeholder="اكتب اسمك"
 
 
 
+
+
 <footer>
 
 لغتي لغة الضاد © 2026
 
 <br>
 
-بإشراف المعلمة سمر رمضان | تطوير M11
+بإشراف المعلمة سمر رمضان
+
+<br>
+
+تطوير M11
 
 </footer>
+
 
 
 
