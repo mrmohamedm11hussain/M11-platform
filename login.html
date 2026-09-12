@@ -3,409 +3,320 @@
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>تسجيل الدخول | لغتي لغة الضاد</title>
-
-<link rel="stylesheet" href="style-new.css">
-
-<style>
-
-.login-page{
-
-min-height:calc(100vh - 80px);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:40px 20px;
-
-}
-
-.login-box{
-
-width:100%;
-
-max-width:480px;
-
-background:white;
-
-padding:45px;
-
-border-radius:35px;
-
-box-shadow:0 20px 60px rgba(0,0,0,.10);
-
-text-align:center;
-
-animation:loginShow .7s ease;
-
-}
-
-@keyframes loginShow{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-.login-logo{
-
-width:95px;
-
-margin-bottom:15px;
-
-}
-
-.login-box h1{
-
-font-size:36px;
-
-color:#1e40af;
-
-margin-bottom:10px;
-
-}
-
-.login-box .subtitle{
-
-color:#64748b;
-
-line-height:1.8;
-
-margin-bottom:30px;
-
-}
-
-.login-field{
-
-text-align:right;
-
-margin-bottom:20px;
-
-}
-
-.login-field label{
-
-display:block;
-
-font-weight:bold;
-
-margin-bottom:8px;
-
-color:#334155;
-
-}
-
-.login-field input,
-
-.login-field select{
-
-width:100%;
-
-padding:16px;
-
-border:2px solid #e2e8f0;
-
-border-radius:15px;
-
-font-size:16px;
-
-outline:none;
-
-background:white;
-
-}
-
-.login-field input:focus,
-
-.login-field select:focus{
-
-border-color:#1e40af;
-
-}
-
-.password-wrapper{
-
-position:relative;
-
-}
-
-.password-wrapper input{
-
-padding-left:55px;
-
-}
-
-.show-password{
-
-position:absolute;
-
-left:12px;
-
-top:50%;
-
-transform:translateY(-50%);
-
-border:0;
-
-background:none;
-
-font-size:20px;
-
-cursor:pointer;
-
-}
-
-.login-button{
-
-width:100%;
-
-border:0;
-
-cursor:pointer;
-
-margin-top:10px;
-
-}
-
-.login-message{
-
-display:none;
-
-background:#fee2e2;
-
-color:#b91c1c;
-
-padding:14px;
-
-border-radius:14px;
-
-margin-bottom:20px;
-
-font-weight:bold;
-
-}
-
-.teacher-note{
-
-margin-top:20px;
-
-padding:15px;
-
-background:#eff6ff;
-
-border-radius:15px;
-
-color:#1e40af;
-
-font-size:14px;
-
-}
-
-</style>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>تسجيل الدخول | لغتي لغة الضاد</title>
+
+  <link rel="stylesheet" href="style-new.css">
+
+  <style>
+
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:25px;
+      background:
+        radial-gradient(circle at top right,#dbeafe,transparent 35%),
+        radial-gradient(circle at bottom left,#fef3c7,transparent 35%),
+        #f8fafc;
+    }
+
+    .login-wrapper{
+      width:100%;
+      max-width:460px;
+    }
+
+    .login-card{
+      background:white;
+      border-radius:32px;
+      padding:40px;
+      box-shadow:0 25px 70px rgba(15,23,42,.14);
+    }
+
+    .brand{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .brand img{
+      width:90px;
+      height:90px;
+      margin-bottom:12px;
+    }
+
+    .brand h1{
+      color:#1e40af;
+      font-size:30px;
+      margin-bottom:8px;
+    }
+
+    .brand p{
+      color:#64748b;
+      line-height:1.8;
+    }
+
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    .form-group label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:bold;
+      color:#334155;
+    }
+
+    .form-group input,
+    .form-group select{
+      width:100%;
+      padding:15px;
+      border:1px solid #dbe4ef;
+      border-radius:15px;
+      background:#f8fafc;
+      outline:none;
+      font-size:16px;
+      transition:.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus{
+      background:white;
+      border-color:#2563eb;
+      box-shadow:0 0 0 4px rgba(37,99,235,.08);
+    }
+
+    .password-box{
+      position:relative;
+    }
+
+    .password-box button{
+      position:absolute;
+      left:10px;
+      top:50%;
+      transform:translateY(-50%);
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    .login-btn{
+      width:100%;
+      border:0;
+      background:#1e40af;
+      color:white;
+      padding:16px;
+      border-radius:15px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:.3s;
+      margin-top:5px;
+    }
+
+    .login-btn:hover{
+      background:#d4a017;
+      transform:translateY(-2px);
+    }
+
+    .login-btn:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
+
+    .message{
+      display:none;
+      padding:13px;
+      border-radius:13px;
+      margin-bottom:16px;
+      text-align:center;
+      line-height:1.7;
+      font-weight:bold;
+    }
+
+    .back{
+      display:block;
+      text-align:center;
+      margin-top:22px;
+      color:#64748b;
+      text-decoration:none;
+    }
+
+    .back:hover{
+      color:#1e40af;
+    }
+
+    .teacher-note{
+      display:none;
+      background:#eff6ff;
+      color:#1e40af;
+      padding:12px;
+      border-radius:13px;
+      margin-bottom:17px;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    @media(max-width:500px){
+
+      .login-card{
+        padding:28px 22px;
+      }
+
+      .brand h1{
+        font-size:25px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
 
 <body>
 
+<div class="login-wrapper">
 
-<nav class="navbar">
+  <div class="login-card">
 
-<a href="index.html" class="brand">
+    <div class="brand">
 
-<img src="logo.svg"
-alt="لغتي لغة الضاد">
+      <img
+        src="logo.svg"
+        alt="لغتي لغة الضاد"
+      >
 
-لغتي لغة الضاد
+      <h1>لغتي لغة الضاد</h1>
 
-</a>
+      <p>
+        مرحبًا بك في منصتك التعليمية 🌷
+      </p>
 
-<div class="nav-links">
-
-<a href="index.html">الرئيسية</a>
-
-<a href="courses.html">المراحل الدراسية</a>
-
-<a href="support.html">الدعم</a>
-
-</div>
-
-</nav>
+    </div>
 
 
-<main class="login-page">
-
-<section class="login-box">
-
-<img
-src="logo.svg"
-class="login-logo"
-alt="لغتي لغة الضاد">
+    <div
+      id="loginMessage"
+      class="message"
+    ></div>
 
 
-<h1>
-تسجيل الدخول
-</h1>
+    <form id="loginForm">
 
 
-<p class="subtitle">
+      <div class="form-group">
 
-أهلاً بك في منصة
-<strong>لغتي لغة الضاد</strong>
+        <label>
+          نوع الحساب
+        </label>
 
-<br>
+        <select id="userType">
 
-سجّل الدخول للوصول إلى محتوى المنصة.
+          <option value="student">
+            👨‍🎓 طالب
+          </option>
 
-</p>
+          <option value="teacher">
+            👩‍🏫 معلمة
+          </option>
 
+        </select>
 
-<div
-id="loginMessage"
-class="login-message">
-</div>
-
-
-<form id="loginForm">
-
-
-<div class="login-field">
-
-<label for="username">
-
-اسم المستخدم
-
-</label>
-
-<input
-type="text"
-id="username"
-placeholder="اكتب اسم المستخدم"
-autocomplete="username"
-required>
-
-</div>
+      </div>
 
 
-<div class="login-field">
-
-<label for="userType">
-
-نوع الحساب
-
-</label>
-
-<select id="userType">
-
-<option value="student">
-طالب
-</option>
-
-<option value="teacher">
-المعلمة
-</option>
-
-</select>
-
-</div>
+      <div
+        id="teacherNote"
+        class="teacher-note"
+      >
+        تسجيل المعلمة يتم باستخدام اسم المستخدم
+        <strong>samar</strong>.
+      </div>
 
 
-<div
-id="teacherPasswordField"
-class="login-field"
-style="display:none;">
+      <div class="form-group">
 
-<label for="teacherPassword">
+        <label id="usernameLabel">
+          البريد الإلكتروني
+        </label>
 
-كلمة مرور المعلمة
+        <input
+          type="text"
+          id="username"
+          placeholder="أدخل بريدك الإلكتروني"
+          autocomplete="username"
+          required
+        >
 
-</label>
+      </div>
 
 
-<div class="password-wrapper">
+      <div class="form-group">
 
-<input
-type="password"
-id="teacherPassword"
-placeholder="كلمة مرور المعلمة"
-autocomplete="current-password">
+        <label>
+          كلمة المرور
+        </label>
 
-<button
-type="button"
-class="show-password"
-onclick="togglePassword()">
+        <div class="password-box">
 
-👁️
+          <input
+            type="password"
+            id="password"
+            placeholder="أدخل كلمة المرور"
+            autocomplete="current-password"
+            required
+          >
 
-</button>
+          <button
+            type="button"
+            onclick="togglePassword()"
+            aria-label="إظهار كلمة المرور"
+          >
+            👁️
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="login-btn"
+        id="loginButton"
+      >
+        تسجيل الدخول
+      </button>
+
+    </form>
+
+
+    <a
+      href="index.html"
+      class="back"
+    >
+      ← العودة إلى الرئيسية
+    </a>
+
+  </div>
 
 </div>
-
-</div>
-
-
-<button
-type="submit"
-class="main-btn login-button">
-
-دخول إلى المنصة 🚀
-
-</button>
-
-
-</form>
-
-
-<div class="teacher-note">
-
-👩‍🏫 حساب المعلمة مخصص لإدارة الدروس والطلاب.
-
-</div>
-
-
-</section>
-
-</main>
-
-
-<footer>
-
-<p>
-لغتي لغة الضاد © 2026
-</p>
-
-<p>
-إشراف المعلمة سمر رمضان |
-تطوير M11
-</p>
-
-</footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="app.js"></script>
-<script src="login-system.js"></script> 
+
+<script src="login-system.js"></script>
+
 
 </body>
 
