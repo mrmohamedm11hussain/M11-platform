@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,809 +10,1571 @@
   <link rel="stylesheet" href="style-new.css">
 
   <style>
-    .lesson-page{
-      max-width:1000px;
-      margin:40px auto;
-      padding:20px;
+
+    :root{
+      --blue:#1e40af;
+      --blue2:#2563eb;
+      --gold:#d4a017;
+      --green:#16a34a;
+      --red:#dc2626;
+      --dark:#0f172a;
+      --muted:#64748b;
+      --bg:#f8fafc;
+      --border:#e2e8f0;
+      --shadow:0 12px 35px rgba(15,23,42,.08);
     }
 
-    .lesson-card{
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--dark);
+      font-family:Tahoma,Arial,sans-serif;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .lesson-header{
+      height:76px;
       background:#fff;
-      border-radius:30px;
-      padding:40px;
-      box-shadow:0 20px 60px rgba(0,0,0,.08);
-      animation:lessonShow .7s ease;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 5px 20px rgba(15,23,42,.05);
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:0 28px;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
 
-    @keyframes lessonShow{
-      from{
-        opacity:0;
-        transform:translateY(25px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
 
-    .lesson-badge{
-      display:inline-block;
+    .brand img{
+      width:48px;
+      height:48px;
+    }
+
+    .brand strong{
+      display:block;
+      color:var(--blue);
+      font-size:18px;
+    }
+
+    .brand span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      margin-top:3px;
+    }
+
+    .back-btn{
+      text-decoration:none;
       background:#eff6ff;
-      color:#1e40af;
-      padding:8px 16px;
-      border-radius:50px;
-      margin-bottom:15px;
+      color:var(--blue);
+      padding:10px 15px;
+      border-radius:12px;
+      font-size:13px;
       font-weight:bold;
     }
 
-    .lesson-title{
-      font-size:42px;
-      color:#1e40af;
+    /* =========================
+       CONTAINER
+    ========================== */
+
+    .lesson-container{
+      width:min(1000px,94%);
+      margin:32px auto 70px;
+    }
+
+    /* =========================
+       LESSON HERO
+    ========================== */
+
+    .lesson-hero{
+      background:linear-gradient(
+        135deg,
+        #1e40af,
+        #2563eb
+      );
+
+      color:#fff;
+
+      border-radius:25px;
+
+      padding:32px;
+
+      margin-bottom:22px;
+
+      box-shadow:
+        0 18px 45px rgba(30,64,175,.20);
+    }
+
+    .lesson-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
       margin-bottom:15px;
     }
 
-    .lesson-description{
-      color:#64748b;
-      font-size:19px;
-      line-height:2;
-      margin-bottom:30px;
+    .lesson-tag{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.20);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:11px;
     }
 
-    .lesson-content{
-      font-size:20px;
-      line-height:2.2;
-      white-space:pre-wrap;
-      color:#1e293b;
+    .lesson-hero h1{
+      margin:0 0 12px;
+      font-size:32px;
+      line-height:1.5;
     }
 
-    .video-box{
-      margin:30px 0;
-      position:relative;
-      padding-bottom:56.25%;
-      height:0;
-      overflow:hidden;
-      border-radius:22px;
+    .lesson-hero p{
+      margin:0;
+      color:#dbeafe;
+      line-height:1.9;
+      font-size:14px;
     }
 
-    .video-box iframe{
-      position:absolute;
-      width:100%;
-      height:100%;
-      border:0;
-      right:0;
-      top:0;
-    }
+    /* =========================
+       PROGRESS
+    ========================== */
 
-    .pdf-btn{
-      display:inline-block;
-      background:#dc2626;
-      color:#fff;
-      padding:14px 25px;
-      border-radius:15px;
-      text-decoration:none;
-      margin:20px 0;
-    }
-
-    .progress-section{
-      margin-top:40px;
-      background:#f8fafc;
-      padding:25px;
-      border-radius:22px;
-    }
-
-    .progress-track{
-      height:15px;
-      background:#e2e8f0;
+    .progress-card{
+      background:#fff;
+      border:1px solid var(--border);
       border-radius:20px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+
+    .progress-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .progress-top strong{
+      font-size:14px;
+    }
+
+    .progress-percent{
+      color:var(--blue);
+      font-weight:bold;
+    }
+
+    .progress-bar{
+      height:10px;
+      background:#e2e8f0;
+      border-radius:999px;
       overflow:hidden;
-      margin:15px 0;
     }
 
     .progress-fill{
       height:100%;
       width:0%;
-      background:#1e40af;
-      transition:1s;
+      background:var(--blue);
+      border-radius:999px;
+      transition:width .5s ease;
+    }
+
+    /* =========================
+       CONTENT
+    ========================== */
+
+    .content-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      margin-bottom:22px;
+    }
+
+    .card-header{
+      padding:20px 24px;
+      border-bottom:1px solid var(--border);
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .card-header h2{
+      margin:0;
+      font-size:20px;
+    }
+
+    .card-header span{
+      font-size:22px;
+    }
+
+    .lesson-content{
+      padding:28px;
+
+      font-size:16px;
+      line-height:2.2;
+
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+    }
+
+    /* =========================
+       VIDEO
+    ========================== */
+
+    .video-wrapper{
+      display:none;
+      background:#000;
+      aspect-ratio:16 / 9;
+    }
+
+    .video-wrapper iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* =========================
+       PDF
+    ========================== */
+
+    .pdf-box{
+      display:none;
+      padding:22px;
+    }
+
+    .pdf-btn{
+      display:inline-block;
+      text-decoration:none;
+      background:#eff6ff;
+      color:var(--blue);
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:bold;
+      font-size:13px;
+    }
+
+    /* =========================
+       COMPLETE
+    ========================== */
+
+    .complete-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      text-align:center;
+      margin-bottom:22px;
     }
 
     .complete-btn{
       border:0;
-      background:#1e40af;
-      color:white;
-      padding:15px 30px;
-      border-radius:15px;
-      font-size:18px;
+      background:var(--green);
+      color:#fff;
+
+      padding:14px 28px;
+
+      border-radius:13px;
+
+      font-size:15px;
+      font-weight:bold;
+
       cursor:pointer;
+
+      transition:.2s;
     }
 
     .complete-btn:hover{
-      background:#d4a017;
+      transform:translateY(-2px);
+      filter:brightness(.95);
     }
 
-    /* QUIZ */
-
-    .quiz-section{
-      margin-top:45px;
-      background:linear-gradient(135deg,#eff6ff,#ffffff);
-      padding:35px;
-      border-radius:30px;
-      border:1px solid #dbeafe;
+    .complete-btn.completed{
+      background:#166534;
     }
 
-    .quiz-header h2{
-      color:#1e40af;
-      font-size:30px;
-      margin-bottom:10px;
-    }
+    /* =========================
+       QUIZ
+    ========================== */
 
-    .quiz-header p{
-      color:#64748b;
-      line-height:1.8;
-    }
-
-    .question-card{
-      background:white;
-      padding:25px;
+    .quiz-card{
+      display:none;
+      background:#fff;
+      border:1px solid var(--border);
       border-radius:22px;
-      margin-top:25px;
-      box-shadow:0 8px 25px rgba(0,0,0,.05);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      margin-bottom:22px;
+    }
+
+    .quiz-description{
+      padding:20px 24px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.8;
+      border-bottom:1px solid var(--border);
+    }
+
+    .questions{
+      padding:24px;
+    }
+
+    .question{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:20px;
+      margin-bottom:16px;
+    }
+
+    .question:last-child{
+      margin-bottom:0;
     }
 
     .question-title{
-      font-size:20px;
       font-weight:bold;
-      margin-bottom:20px;
+      line-height:1.8;
+      margin-bottom:15px;
     }
 
     .option{
-      display:block;
-      padding:14px;
-      margin:10px 0;
-      border:2px solid #e2e8f0;
-      border-radius:15px;
+      display:flex;
+      align-items:center;
+      gap:9px;
+
+      background:#f8fafc;
+      border:1px solid var(--border);
+
+      padding:12px;
+      border-radius:10px;
+
+      margin-top:8px;
+
       cursor:pointer;
+
       transition:.2s;
     }
 
     .option:hover{
-      border-color:#1e40af;
       background:#eff6ff;
+      border-color:#bfdbfe;
     }
 
     .option input{
-      margin-left:10px;
+      accent-color:var(--blue);
     }
 
     .quiz-submit{
-      margin-top:25px;
+      width:calc(100% - 48px);
+      margin:0 24px 24px;
+
       border:0;
-      background:#1e40af;
+      background:var(--blue);
       color:#fff;
-      padding:16px 35px;
-      border-radius:16px;
-      font-size:18px;
+
+      padding:14px;
+      border-radius:13px;
+
+      font-weight:bold;
+      font-size:15px;
+
       cursor:pointer;
     }
 
     .quiz-result{
-      margin-top:25px;
-      padding:25px;
-      border-radius:20px;
       display:none;
+      margin:0 24px 24px;
+      padding:15px;
+      border-radius:12px;
       text-align:center;
-      font-size:22px;
-      font-weight:bold;
+      line-height:1.8;
     }
 
-    .quiz-success{
-      background:#dcfce7;
-      color:#166534;
-    }
-
-    .quiz-fail{
-      background:#fee2e2;
-      color:#991b1b;
-    }
+    /* =========================
+       LOADING
+    ========================== */
 
     .loading{
       text-align:center;
-      padding:60px;
-      font-size:22px;
+      padding:80px 20px;
+      color:var(--muted);
     }
 
-    @media(max-width:700px){
-      .lesson-card{
-        padding:25px;
+    .error{
+      background:#fee2e2;
+      color:#991b1b;
+      padding:25px;
+      border-radius:16px;
+      text-align:center;
+      line-height:1.9;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+      text-align:center;
+      color:#94a3b8;
+      font-size:12px;
+      padding:25px;
+    }
+
+    @media(max-width:600px){
+
+      .lesson-header{
+        height:auto;
+        min-height:70px;
+        padding:12px 15px;
       }
 
-      .lesson-title{
-        font-size:30px;
+      .brand img{
+        width:42px;
+        height:42px;
+      }
+
+      .brand strong{
+        font-size:14px;
+      }
+
+      .brand span{
+        font-size:9px;
+      }
+
+      .back-btn{
+        padding:9px 11px;
+        font-size:11px;
+      }
+
+      .lesson-container{
+        width:92%;
+        margin-top:22px;
+      }
+
+      .lesson-hero{
+        padding:24px 20px;
+      }
+
+      .lesson-hero h1{
+        font-size:24px;
       }
 
       .lesson-content{
-        font-size:18px;
+        padding:20px;
+        font-size:14px;
+        line-height:2.1;
       }
+
+      .questions{
+        padding:18px;
+      }
+
+      .quiz-submit{
+        width:calc(100% - 36px);
+        margin:0 18px 18px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
-<header class="navbar">
+  <!-- HEADER -->
 
-  <div class="brand">
-    <img src="logo.svg" alt="لغتي لغة الضاد">
-    <span>لغتي لغة الضاد</span>
-  </div>
+  <header class="lesson-header">
 
-  <nav class="nav-links">
-    <a href="student.html">الرئيسية</a>
-    <a href="profile.html">حسابي</a>
-    <a href="support.html">الدعم</a>
-  </nav>
+    <div class="brand">
 
-</header>
+      <img src="logo.svg" alt="لغتي لغة الضاد">
 
-
-<main class="lesson-page">
-
-  <div id="loading" class="loading">
-    ⏳ جاري تحميل الدرس...
-  </div>
-
-
-  <section id="lessonContainer"
-           class="lesson-card"
-           style="display:none;">
-
-    <div id="lessonBadge"
-         class="lesson-badge"></div>
-
-    <h1 id="lessonTitle"
-        class="lesson-title"></h1>
-
-    <p id="lessonDescription"
-       class="lesson-description"></p>
-
-    <div id="videoContainer"></div>
-
-    <div id="lessonContent"
-         class="lesson-content"></div>
-
-    <div id="pdfContainer"></div>
-
-
-    <div class="progress-section">
-
-      <h3>📊 تقدمك في هذا الدرس</h3>
-
-      <div class="progress-track">
-        <div id="progressFill"
-             class="progress-fill"></div>
+      <div>
+        <strong>لغتي لغة الضاد</strong>
+        <span>منصة المعلمة سمر رمضان</span>
       </div>
-
-      <p id="progressText">0%</p>
-
-      <br>
-
-      <button
-        id="completeButton"
-        class="complete-btn">
-        ✅ إتمام الدرس
-      </button>
 
     </div>
 
+    <a
+      href="student.html"
+      class="back-btn">
 
-    <!-- QUIZ -->
+      ← العودة للدروس
 
-    <section id="quizSection"
-             class="quiz-section"
-             style="display:none;">
+    </a>
 
-      <div class="quiz-header">
+  </header>
 
-        <h2 id="quizTitle">
-          📝 اختبار الدرس
-        </h2>
 
-        <p id="quizDescription"></p>
+  <main class="lesson-container">
 
-      </div>
+    <div id="loading" class="loading">
+      جاري تحميل الدرس...
+    </div>
 
-      <div id="questionsContainer"></div>
 
-      <button
-        id="quizSubmit"
-        class="quiz-submit">
-        🎯 تصحيح الاختبار
-      </button>
+    <div id="lessonPage" style="display:none;">
 
-      <div id="quizResult"
-           class="quiz-result">
-      </div>
 
-    </section>
+      <!-- LESSON HERO -->
 
-  </section>
+      <section class="lesson-hero">
 
-</main>
+        <div class="lesson-tags">
 
+          <span
+            id="lessonGrade"
+            class="lesson-tag">
+          </span>
 
-<footer>
-  <p>© 2026 لغتي لغة الضاد</p>
-  <p>تصميم وتطوير Mohamed Hussain — M11</p>
-</footer>
+          <span
+            id="lessonSubject"
+            class="lesson-tag">
+          </span>
 
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js"></script>
-
-<script>
-
-const params = new URLSearchParams(
-  window.location.search
-);
-
-const lessonId = params.get("id");
-
-let currentLesson = null;
-let currentQuiz = null;
-
-
-function youtubeEmbed(url){
-
-  if(!url) return "";
-
-  try{
-
-    const parsed = new URL(url);
-
-    let videoId = "";
-
-    if(parsed.hostname.includes("youtu.be")){
-      videoId = parsed.pathname.substring(1);
-    }
-
-    if(parsed.hostname.includes("youtube.com")){
-      videoId = parsed.searchParams.get("v") || "";
-
-      if(parsed.pathname.includes("/embed/")){
-        videoId =
-          parsed.pathname.split("/embed/")[1];
-      }
-    }
-
-    if(!videoId) return "";
-
-    return `
-      <div class="video-box">
-        <iframe
-          src="https://www.youtube.com/embed/${videoId}"
-          allowfullscreen>
-        </iframe>
-      </div>
-    `;
-
-  }catch{
-    return "";
-  }
-}
-
-
-async function loadLesson(){
-
-  if(!lessonId){
-    document.getElementById("loading").textContent =
-      "لم يتم تحديد الدرس.";
-    return;
-  }
-
-  const user = await getCurrentUser();
-
-  if(!user){
-    window.location.href = "login.html";
-    return;
-  }
-
-  const profile = await getMyProfile();
-
-  if(!profile || profile.role !== "student"){
-    window.location.href = "login.html";
-    return;
-  }
-
-
-  currentLesson = await getLesson(lessonId);
-
-  if(!currentLesson){
-    document.getElementById("loading").textContent =
-      "لم يتم العثور على هذا الدرس.";
-    return;
-  }
-
-
-  document.title =
-    currentLesson.title + " | لغتي لغة الضاد";
-
-
-  document.getElementById("lessonBadge").textContent =
-    `${currentLesson.grade} • ${currentLesson.subject}`;
-
-  document.getElementById("lessonTitle").textContent =
-    currentLesson.title;
-
-  document.getElementById("lessonDescription").textContent =
-    currentLesson.description || "";
-
-
-  document.getElementById("lessonContent").textContent =
-    currentLesson.content || "لا يوجد محتوى نصي لهذا الدرس.";
-
-
-  if(currentLesson.video_url){
-
-    document.getElementById("videoContainer").innerHTML =
-      youtubeEmbed(currentLesson.video_url);
-
-  }
-
-
-  if(currentLesson.pdf_url){
-
-    document.getElementById("pdfContainer").innerHTML = `
-      <a
-        class="pdf-btn"
-        href="${currentLesson.pdf_url}"
-        target="_blank"
-        rel="noopener">
-        📄 فتح ملف الدرس PDF
-      </a>
-    `;
-
-  }
-
-
-  const progressList = await getMyProgress();
-
-  const progress = progressList.find(
-    item => item.lesson_id === lessonId
-  );
-
-  const currentProgress =
-    progress ? progress.progress : 0;
-
-  updateProgress(currentProgress);
-
-
-  if(!progress){
-
-    await saveLessonProgress(
-      lessonId,
-      10,
-      false
-    );
-
-    updateProgress(10);
-
-  }
-
-
-  await loadQuiz();
-
-
-  document.getElementById("loading").style.display =
-    "none";
-
-  document.getElementById("lessonContainer").style.display =
-    "block";
-}
-
-
-function updateProgress(value){
-
-  value = Math.max(
-    0,
-    Math.min(100, value)
-  );
-
-  document.getElementById("progressFill")
-    .style.width = value + "%";
-
-  document.getElementById("progressText")
-    .textContent = value + "%";
-}
-
-
-document.getElementById("completeButton")
-  .addEventListener("click", async function(){
-
-    this.disabled = true;
-    this.textContent = "⏳ جاري الحفظ...";
-
-    const success = await saveLessonProgress(
-      lessonId,
-      100,
-      true
-    );
-
-    if(success){
-
-      updateProgress(100);
-
-      this.textContent =
-        "🎉 تم إتمام الدرس";
-
-    }else{
-
-      this.disabled = false;
-      this.textContent =
-        "❌ حاول مرة أخرى";
-
-    }
-
-  });
-
-
-async function loadQuiz(){
-
-  currentQuiz = await getQuizByLesson(lessonId);
-
-  if(!currentQuiz) return;
-
-  if(
-    !currentQuiz.quiz_questions ||
-    currentQuiz.quiz_questions.length === 0
-  ){
-    return;
-  }
-
-
-  document.getElementById("quizSection")
-    .style.display = "block";
-
-  document.getElementById("quizTitle")
-    .textContent =
-      "📝 " + currentQuiz.title;
-
-  document.getElementById("quizDescription")
-    .textContent =
-      currentQuiz.description || "";
-
-
-  const container =
-    document.getElementById("questionsContainer");
-
-  container.innerHTML = "";
-
-
-  currentQuiz.quiz_questions.forEach(
-    (question, index) => {
-
-      const card =
-        document.createElement("div");
-
-      card.className = "question-card";
-
-      card.innerHTML = `
-
-        <div class="question-title">
-          ${index + 1}. ${escapeHTML(question.question)}
         </div>
 
-        ${createOption(
-          question.id,
-          "a",
-          question.option_a
-        )}
+        <h1 id="lessonTitle"></h1>
 
-        ${createOption(
-          question.id,
-          "b",
-          question.option_b
-        )}
+        <p id="lessonDescription"></p>
 
-        ${createOption(
-          question.id,
-          "c",
-          question.option_c
-        )}
+      </section>
 
-        ${createOption(
-          question.id,
-          "d",
-          question.option_d
-        )}
 
-      `;
+      <!-- PROGRESS -->
 
-      container.appendChild(card);
+      <section class="progress-card">
+
+        <div class="progress-top">
+
+          <strong>
+            تقدمك في الدرس
+          </strong>
+
+          <span
+            id="progressPercent"
+            class="progress-percent">
+            0%
+          </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+          <div
+            id="progressFill"
+            class="progress-fill">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- VIDEO -->
+
+      <section
+        id="videoCard"
+        class="content-card"
+        style="display:none;">
+
+        <div class="card-header">
+
+          <h2>شرح الدرس 🎥</h2>
+
+          <span>▶️</span>
+
+        </div>
+
+        <div
+          id="videoWrapper"
+          class="video-wrapper">
+        </div>
+
+      </section>
+
+
+      <!-- CONTENT -->
+
+      <section class="content-card">
+
+        <div class="card-header">
+
+          <h2>محتوى الدرس 📖</h2>
+
+          <span>✏️</span>
+
+        </div>
+
+        <div
+          id="lessonContent"
+          class="lesson-content">
+        </div>
+
+      </section>
+
+
+      <!-- PDF -->
+
+      <section
+        id="pdfCard"
+        class="content-card"
+        style="display:none;">
+
+        <div class="card-header">
+
+          <h2>ملف الدرس 📄</h2>
+
+          <span>📎</span>
+
+        </div>
+
+        <div class="pdf-box" style="display:block;">
+
+          <a
+            id="pdfLink"
+            class="pdf-btn"
+            target="_blank"
+            rel="noopener">
+
+            فتح ملف الدرس
+
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- QUIZ -->
+
+      <section
+        id="quizCard"
+        class="quiz-card">
+
+        <div class="card-header">
+
+          <div>
+
+            <h2 id="quizTitle">
+              اختبار الدرس 📝
+            </h2>
+
+          </div>
+
+          <span>🎯</span>
+
+        </div>
+
+
+        <div
+          id="quizDescription"
+          class="quiz-description">
+        </div>
+
+
+        <div
+          id="questions"
+          class="questions">
+        </div>
+
+
+        <button
+          id="quizSubmit"
+          class="quiz-submit">
+
+          تصحيح الاختبار
+
+        </button>
+
+
+        <div
+          id="quizResult"
+          class="quiz-result">
+        </div>
+
+      </section>
+
+
+      <!-- COMPLETE -->
+
+      <section class="complete-card">
+
+        <p id="completeText">
+          بعد الانتهاء من دراسة الدرس، اضغط على الزر التالي.
+        </p>
+
+        <button
+          id="completeBtn"
+          class="complete-btn">
+
+          إتمام الدرس ✓
+
+        </button>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    لغتي لغة الضاد © 2026
+    <br>
+    تم التصميم والتطوير بواسطة Mohamed Hussain — M11
+
+  </footer>
+
+
+  <!-- SUPABASE -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let lesson = null;
+    let quiz = null;
+    let currentProgress = 0;
+
+
+    /* =========================
+       HELPERS
+    ========================== */
+
+    function escapeHtml(value){
+
+      return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
     }
-  );
-
-}
 
 
-function createOption(
-  questionId,
-  letter,
-  text
-){
+    function getLessonId(){
 
-  return `
-    <label class="option">
-
-      <input
-        type="radio"
-        name="question-${questionId}"
-        value="${letter}">
-
-      ${escapeHTML(text)}
-
-    </label>
-  `;
-
-}
-
-
-function escapeHTML(value){
-
-  return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-document.getElementById("quizSubmit")
-  .addEventListener("click", async function(){
-
-    if(!currentQuiz) return;
-
-    const questions =
-      currentQuiz.quiz_questions || [];
-
-    let score = 0;
-    let totalPoints = 0;
-    let answered = 0;
-
-
-    questions.forEach(question => {
-
-      totalPoints +=
-        Number(question.points || 1);
-
-      const selected =
-        document.querySelector(
-          `input[name="question-${question.id}"]:checked`
+      const params =
+        new URLSearchParams(
+          window.location.search
         );
 
-      if(selected){
+      return params.get("id");
 
-        answered++;
+    }
+
+
+    function youtubeEmbed(url){
+
+      if(!url) return null;
+
+      try{
+
+        const parsed =
+          new URL(url);
+
+        let id = "";
+
 
         if(
-          selected.value ===
-          question.correct_answer
+          parsed.hostname.includes("youtube.com")
         ){
 
-          score +=
-            Number(question.points || 1);
+          id =
+            parsed.searchParams.get("v") || "";
+
+          if(
+            parsed.pathname.startsWith("/embed/")
+          ){
+
+            id =
+              parsed.pathname.split("/embed/")[1];
+
+          }
+
+        }
+
+
+        if(
+          parsed.hostname === "youtu.be"
+        ){
+
+          id =
+            parsed.pathname.substring(1);
+
+        }
+
+
+        if(!id) return null;
+
+
+        return
+          "https://www.youtube.com/embed/" +
+          encodeURIComponent(id);
+
+      }catch{
+
+        return null;
+
+      }
+
+    }
+
+
+    /* =========================
+       LOAD LESSON
+    ========================== */
+
+    async function loadLesson(){
+
+      const id =
+        getLessonId();
+
+
+      if(!id){
+
+        showError(
+          "لم يتم تحديد الدرس."
+        );
+
+        return;
+
+      }
+
+
+      try{
+
+        lesson =
+          await getLesson(id);
+
+
+        if(!lesson){
+
+          showError(
+            "لم يتم العثور على هذا الدرس."
+          );
+
+          return;
+
+        }
+
+
+        if(!lesson.is_published){
+
+          showError(
+            "هذا الدرس غير منشور حاليًا."
+          );
+
+          return;
+
+        }
+
+
+        renderLesson();
+
+
+        await loadProgress();
+
+
+        await loadQuiz();
+
+
+      }catch(error){
+
+        console.error(error);
+
+        showError(
+          "حدث خطأ أثناء تحميل الدرس."
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       RENDER
+    ========================== */
+
+    function renderLesson(){
+
+      document.title =
+        (lesson.title || "الدرس") +
+        " | لغتي لغة الضاد";
+
+
+      document.getElementById(
+        "lessonTitle"
+      ).textContent =
+        lesson.title || "بدون عنوان";
+
+
+      document.getElementById(
+        "lessonDescription"
+      ).textContent =
+        lesson.description ||
+        "ابدأ دراسة الدرس الآن.";
+
+
+      document.getElementById(
+        "lessonGrade"
+      ).textContent =
+        lesson.grade || "عام";
+
+
+      document.getElementById(
+        "lessonSubject"
+      ).textContent =
+        lesson.subject || "اللغة العربية";
+
+
+      document.getElementById(
+        "lessonContent"
+      ).textContent =
+        lesson.content ||
+        "لا يوجد محتوى نصي لهذا الدرس.";
+
+
+      /* VIDEO */
+
+      const embed =
+        youtubeEmbed(
+          lesson.video_url
+        );
+
+
+      if(embed){
+
+        document.getElementById(
+          "videoCard"
+        ).style.display = "block";
+
+
+        document.getElementById(
+          "videoWrapper"
+        ).style.display = "block";
+
+
+        document.getElementById(
+          "videoWrapper"
+        ).innerHTML = `
+
+          <iframe
+            src="${embed}"
+            title="فيديو الدرس"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        `;
+
+      }
+
+
+      /* PDF */
+
+      if(lesson.pdf_url){
+
+        document.getElementById(
+          "pdfCard"
+        ).style.display = "block";
+
+
+        document.getElementById(
+          "pdfLink"
+        ).href =
+          lesson.pdf_url;
+
+      }
+
+
+      document.getElementById(
+        "loading"
+      ).style.display = "none";
+
+
+      document.getElementById(
+        "lessonPage"
+      ).style.display = "block";
+
+    }
+
+
+    /* =========================
+       PROGRESS
+    ========================== */
+
+    async function loadProgress(){
+
+      const progress =
+        await getMyProgress();
+
+
+      const item =
+        progress.find(
+          x => x.lesson_id === lesson.id
+        );
+
+
+      if(item){
+
+        currentProgress =
+          Math.max(
+            0,
+            Math.min(
+              100,
+              Number(item.progress) || 0
+            )
+          );
+
+
+        updateProgress(
+          currentProgress
+        );
+
+
+        if(item.completed){
+
+          markCompleted();
 
         }
 
       }
 
-    });
-
-
-    if(answered < questions.length){
-
-      alert(
-        `من فضلك أجب عن جميع الأسئلة.\nأجبت عن ${answered} من ${questions.length}.`
-      );
-
-      return;
     }
 
 
-    this.disabled = true;
-    this.textContent =
-      "⏳ جاري حفظ النتيجة...";
+    function updateProgress(value){
 
-
-    try{
-
-      const result =
-        await saveQuizAttempt(
-          currentQuiz.id,
-          score,
-          totalPoints
+      currentProgress =
+        Math.max(
+          0,
+          Math.min(100, Number(value) || 0)
         );
 
 
-      const percentage =
-        result.percentage;
+      document.getElementById(
+        "progressPercent"
+      ).textContent =
+        currentProgress + "%";
 
 
-      const resultBox =
-        document.getElementById("quizResult");
+      document.getElementById(
+        "progressFill"
+      ).style.width =
+        currentProgress + "%";
 
-      resultBox.style.display = "block";
+    }
 
-      if(percentage >= 50){
 
-        resultBox.className =
-          "quiz-result quiz-success";
+    function markCompleted(){
 
-        resultBox.innerHTML = `
-          🎉 ممتاز!
-          <br>
-          حصلت على
-          ${score} من ${totalPoints}
-          <br>
-          النتيجة: ${percentage}%
-        `;
+      updateProgress(100);
 
-        await saveLessonProgress(
-          lessonId,
-          100,
-          true
-        );
 
-        updateProgress(100);
-
+      const button =
         document.getElementById(
-          "completeButton"
-        ).textContent =
-          "🎉 تم إتمام الدرس والاختبار";
+          "completeBtn"
+        );
 
-      }else{
 
-        resultBox.className =
-          "quiz-result quiz-fail";
+      button.textContent =
+        "تم إتمام الدرس ✓";
 
-        resultBox.innerHTML = `
-          💪 حاول مرة أخرى
-          <br>
-          حصلت على
-          ${score} من ${totalPoints}
-          <br>
-          النتيجة: ${percentage}%
-        `;
+
+      button.classList.add(
+        "completed"
+      );
+
+
+      document.getElementById(
+        "completeText"
+      ).textContent =
+        "أحسنت! لقد أتممت هذا الدرس بنجاح 🎉";
+
+    }
+
+
+    /* =========================
+       COMPLETE
+    ========================== */
+
+    document
+      .getElementById("completeBtn")
+      .addEventListener(
+        "click",
+        async function(){
+
+          const button = this;
+
+
+          button.disabled = true;
+
+          button.textContent =
+            "جاري الحفظ...";
+
+
+          try{
+
+            const saved =
+              await saveLessonProgress(
+                lesson.id,
+                100,
+                true
+              );
+
+
+            if(!saved){
+
+              throw new Error(
+                "تعذر حفظ التقدم."
+              );
+
+            }
+
+
+            markCompleted();
+
+          }catch(error){
+
+            console.error(error);
+
+            alert(
+              "حدث خطأ أثناء حفظ التقدم."
+            );
+
+
+            button.disabled = false;
+
+          }
+
+        }
+      );
+
+
+    /* =========================
+       QUIZ
+    ========================== */
+
+    async function loadQuiz(){
+
+      if(
+        typeof getQuizByLesson !==
+        "function"
+      ){
+
+        return;
 
       }
 
 
-      this.textContent =
-        "✅ تم تصحيح الاختبار";
+      quiz =
+        await getQuizByLesson(
+          lesson.id
+        );
 
-    }catch(error){
 
-      console.error(error);
+      if(
+        !quiz ||
+        !quiz.quiz_questions ||
+        quiz.quiz_questions.length === 0
+      ){
 
-      alert(
-        error.message ||
-        "حدث خطأ أثناء حفظ النتيجة."
-      );
+        return;
 
-      this.disabled = false;
+      }
 
-      this.textContent =
-        "🎯 تصحيح الاختبار";
+
+      renderQuiz();
 
     }
 
-  });
+
+    function renderQuiz(){
+
+      const card =
+        document.getElementById(
+          "quizCard"
+        );
 
 
-loadLesson();
+      card.style.display =
+        "block";
 
-</script>
+
+      document.getElementById(
+        "quizTitle"
+      ).textContent =
+        quiz.title ||
+        "اختبار الدرس 📝";
+
+
+      document.getElementById(
+        "quizDescription"
+      ).textContent =
+        quiz.description ||
+        "اختر الإجابة الصحيحة لكل سؤال.";
+
+
+      const questions =
+        document.getElementById(
+          "questions"
+        );
+
+
+      questions.innerHTML =
+        quiz.quiz_questions.map(
+          (q,index) => `
+
+            <div
+              class="question">
+
+              <div
+                class="question-title">
+
+                ${index + 1}.
+                ${escapeHtml(q.question)}
+
+              </div>
+
+
+              ${renderOption(
+                q.id,
+                "A",
+                q.option_a
+              )}
+
+              ${renderOption(
+                q.id,
+                "B",
+                q.option_b
+              )}
+
+              ${renderOption(
+                q.id,
+                "C",
+                q.option_c
+              )}
+
+              ${renderOption(
+                q.id,
+                "D",
+                q.option_d
+              )}
+
+            </div>
+
+          `
+        ).join("");
+
+    }
+
+
+    function renderOption(
+      questionId,
+      value,
+      text
+    ){
+
+      if(!text) return "";
+
+
+      return `
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="question-${questionId}"
+            value="${value}">
+
+          <span>
+            ${escapeHtml(text)}
+          </span>
+
+        </label>
+
+      `;
+
+    }
+
+
+    /* =========================
+       QUIZ SUBMIT
+    ========================== */
+
+    document
+      .getElementById("quizSubmit")
+      .addEventListener(
+        "click",
+        async function(){
+
+          if(!quiz) return;
+
+
+          const questions =
+            quiz.quiz_questions;
+
+
+          let score = 0;
+          let answered = 0;
+          let totalPoints = 0;
+
+
+          questions.forEach(q => {
+
+            const points =
+              Number(q.points) || 1;
+
+
+            totalPoints += points;
+
+
+            const selected =
+              document.querySelector(
+                `input[name="question-${q.id}"]:checked`
+              );
+
+
+            if(selected){
+
+              answered++;
+
+
+              if(
+                selected.value ===
+                q.correct_answer
+              ){
+
+                score += points;
+
+              }
+
+            }
+
+          });
+
+
+          if(
+            answered <
+            questions.length
+          ){
+
+            alert(
+              "من فضلك أجب عن جميع الأسئلة أولًا."
+            );
+
+            return;
+
+          }
+
+
+          const percentage =
+            totalPoints > 0
+              ? Math.round(
+                  (score / totalPoints) *
+                  100
+                )
+              : 0;
+
+
+          const result =
+            document.getElementById(
+              "quizResult"
+            );
+
+
+          result.style.display =
+            "block";
+
+
+          if(percentage >= 50){
+
+            result.style.background =
+              "#dcfce7";
+
+            result.style.color =
+              "#166534";
+
+
+            result.innerHTML = `
+              نتيجتك:
+              <strong>
+                ${score} / ${totalPoints}
+              </strong>
+              — ${percentage}%
+              <br>
+              أحسنت! 🎉
+            `;
+
+          }else{
+
+            result.style.background =
+              "#fee2e2";
+
+            result.style.color =
+              "#991b1b";
+
+
+            result.innerHTML = `
+              نتيجتك:
+              <strong>
+                ${score} / ${totalPoints}
+              </strong>
+              — ${percentage}%
+              <br>
+              راجع الدرس وحاول مرة أخرى.
+            `;
+
+          }
+
+
+          try{
+
+            if(
+              typeof saveQuizAttempt ===
+              "function"
+            ){
+
+              await saveQuizAttempt(
+                quiz.id,
+                score,
+                totalPoints
+              );
+
+            }
+
+
+            if(percentage >= 50){
+
+              await saveLessonProgress(
+                lesson.id,
+                100,
+                true
+              );
+
+              markCompleted();
+
+            }
+
+          }catch(error){
+
+            console.error(
+              "Quiz save error:",
+              error
+            );
+
+          }
+
+        }
+      );
+
+
+    /* =========================
+       ERROR
+    ========================== */
+
+    function showError(message){
+
+      document.getElementById(
+        "loading"
+      ).innerHTML = `
+
+        <div class="error">
+
+          ${escapeHtml(message)}
+
+          <br><br>
+
+          <a
+            href="student.html"
+            style="
+              color:#1e40af;
+              font-weight:bold;
+              text-decoration:none;
+            ">
+
+            العودة إلى الدروس
+
+          </a>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       AUTH GUARD
+    ========================== */
+
+    (async function(){
+
+      const user =
+        await getCurrentUser();
+
+
+      if(!user){
+
+        window.location.href =
+          "login.html";
+
+        return;
+
+      }
+
+
+      const profile =
+        await getMyProfile();
+
+
+      if(
+        !profile ||
+        profile.role !== "student"
+      ){
+
+        await supabaseClient.auth.signOut();
+
+        window.location.href =
+          "login.html";
+
+        return;
+
+      }
+
+
+      await loadLesson();
+
+    })();
+
+  </script>
 
 </body>
-</html> 
+
+            </html> 
