@@ -1,645 +1,715 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>المبتدأ والخبر | لغتي لغة الضاد</title>
+  <title>الدرس | لغتي لغة الضاد</title>
 
-<link rel="stylesheet" href="style-new.css">
+  <link rel="stylesheet" href="style-new.css">
 
-<style>
-
-.lesson-page{
-    width:90%;
-    max-width:1200px;
-    margin:50px auto;
-}
-
-.lesson-header{
-    background:white;
-    border-radius:35px;
-    padding:45px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-    margin-bottom:35px;
-}
-
-.lesson-header .icon{
-    font-size:65px;
-    margin-bottom:15px;
-}
-
-.lesson-header h1{
-    color:#1e40af;
-    font-size:45px;
-    margin-bottom:15px;
-}
-
-.lesson-header p{
-    font-size:20px;
-    color:#475569;
-    line-height:2;
-}
-
-.lesson-badges{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.badge{
-    background:#eff6ff;
-    color:#1e40af;
-    padding:10px 18px;
-    border-radius:50px;
-    font-weight:bold;
-}
-
-.lesson-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:30px;
-}
-
-.lesson-card{
-    background:white;
-    padding:35px;
-    border-radius:30px;
-    box-shadow:0 15px 35px rgba(0,0,0,.07);
-    margin-bottom:30px;
-}
-
-.lesson-card h2{
-    color:#1e40af;
-    font-size:30px;
-    margin-bottom:20px;
-}
-
-.lesson-card p{
-    font-size:19px;
-    line-height:2;
-    color:#334155;
-}
-
-.video-box{
-    height:330px;
-    background:linear-gradient(135deg,#0f172a,#1e40af);
-    border-radius:25px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    color:white;
-    text-align:center;
-}
-
-.video-icon{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:white;
-    color:#1e40af;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-.example{
-    background:#f8fafc;
-    border-right:5px solid #facc15;
-    padding:20px;
-    border-radius:15px;
-    margin:15px 0;
-    font-size:20px;
-}
-
-.question{
-    background:#f8fafc;
-    padding:25px;
-    border-radius:20px;
-    margin-bottom:25px;
-}
-
-.question h3{
-    margin-bottom:18px;
-    color:#0f172a;
-}
-
-.option{
-    display:block;
-    background:white;
-    border:2px solid #e2e8f0;
-    padding:15px;
-    border-radius:15px;
-    margin:10px 0;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.option:hover{
-    border-color:#1e40af;
-    transform:translateX(-4px);
-}
-
-.option input{
-    margin-left:10px;
-}
-
-.correct{
-    border-color:#16a34a !important;
-    background:#f0fdf4 !important;
-}
-
-.wrong{
-    border-color:#dc2626 !important;
-    background:#fef2f2 !important;
-}
-
-.quiz-result{
-    display:none;
-    text-align:center;
-    padding:30px;
-    border-radius:25px;
-    background:#eff6ff;
-    margin-top:25px;
-}
-
-.quiz-result h2{
-    color:#1e40af;
-    font-size:35px;
-}
-
-.score-number{
-    font-size:55px;
-    font-weight:bold;
-    color:#d4a017;
-    margin:15px;
-}
-
-.side-title{
-    color:#1e40af;
-    font-size:24px;
-    margin-bottom:20px;
-}
-
-.lesson-list a{
-    display:block;
-    text-decoration:none;
-    color:#334155;
-    background:#f8fafc;
-    padding:15px;
-    border-radius:15px;
-    margin-bottom:10px;
-    transition:.25s;
-}
-
-.lesson-list a:hover{
-    background:#eff6ff;
-    color:#1e40af;
-    transform:translateX(-5px);
-}
-
-.progress-box{
-    margin-top:25px;
-}
-
-.progress-bar{
-    height:15px;
-    background:#e2e8f0;
-    border-radius:50px;
-    overflow:hidden;
-}
-
-.progress-fill{
-    height:100%;
-    width:0%;
-    background:#1e40af;
-    transition:1s;
-}
-
-.complete-box{
-    text-align:center;
-}
-
-@media(max-width:800px){
-
-    .lesson-grid{
-        grid-template-columns:1fr;
+  <style>
+    .lesson-page{
+      width:min(1100px,92%);
+      margin:40px auto 80px;
     }
 
-    .lesson-header h1{
-        font-size:32px;
+    .lesson-hero{
+      background:linear-gradient(135deg,#1e40af,#2563eb);
+      color:white;
+      border-radius:32px;
+      padding:45px 35px;
+      box-shadow:0 20px 50px rgba(30,64,175,.25);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .lesson-hero::after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      left:-80px;
+      bottom:-130px;
+    }
+
+    .lesson-badge{
+      display:inline-block;
+      background:rgba(255,255,255,.16);
+      padding:8px 15px;
+      border-radius:30px;
+      margin-bottom:18px;
+      font-size:14px;
+    }
+
+    .lesson-hero h1{
+      font-size:42px;
+      margin-bottom:15px;
+      position:relative;
+      z-index:2;
+    }
+
+    .lesson-description{
+      font-size:19px;
+      line-height:1.9;
+      opacity:.95;
+      max-width:800px;
+      position:relative;
+      z-index:2;
+    }
+
+    .lesson-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:25px;
+      position:relative;
+      z-index:2;
+    }
+
+    .meta-item{
+      background:rgba(255,255,255,.15);
+      padding:9px 16px;
+      border-radius:20px;
+      font-size:14px;
     }
 
     .lesson-card{
-        padding:25px;
+      background:white;
+      border-radius:28px;
+      padding:32px;
+      margin-top:25px;
+      box-shadow:0 15px 40px rgba(15,23,42,.08);
+    }
+
+    .lesson-card h2{
+      color:#1e40af;
+      margin-bottom:20px;
+      font-size:26px;
+    }
+
+    .lesson-content{
+      font-size:19px;
+      line-height:2.2;
+      white-space:pre-wrap;
+      color:#334155;
     }
 
     .video-box{
-        height:250px;
+      background:#0f172a;
+      border-radius:22px;
+      overflow:hidden;
+      margin-top:15px;
     }
-}
 
-</style>
+    .video-box iframe{
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      display:block;
+    }
 
+    .video-link{
+      display:inline-block;
+      background:#1e40af;
+      color:white;
+      text-decoration:none;
+      padding:13px 22px;
+      border-radius:15px;
+      margin-top:10px;
+    }
+
+    .pdf-btn{
+      display:inline-block;
+      background:#dc2626;
+      color:white;
+      text-decoration:none;
+      padding:14px 24px;
+      border-radius:15px;
+      margin-top:10px;
+    }
+
+    .progress-box{
+      margin-top:20px;
+      background:#f1f5f9;
+      padding:20px;
+      border-radius:20px;
+    }
+
+    .progress-top{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:10px;
+      font-weight:bold;
+    }
+
+    .progress-bar{
+      height:13px;
+      background:#e2e8f0;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .progress-fill{
+      height:100%;
+      width:0%;
+      background:#1e40af;
+      border-radius:20px;
+      transition:.5s;
+    }
+
+    .complete-btn{
+      width:100%;
+      border:0;
+      background:#1e40af;
+      color:white;
+      padding:17px;
+      border-radius:17px;
+      font-size:19px;
+      cursor:pointer;
+      margin-top:20px;
+      transition:.3s;
+    }
+
+    .complete-btn:hover{
+      background:#16358f;
+      transform:translateY(-2px);
+    }
+
+    .complete-btn.done{
+      background:#16a34a;
+    }
+
+    .empty{
+      text-align:center;
+      padding:70px 20px;
+    }
+
+    .empty h2{
+      color:#1e40af;
+      margin-bottom:15px;
+    }
+
+    .loading{
+      text-align:center;
+      padding:80px 20px;
+      font-size:22px;
+      color:#1e40af;
+    }
+
+    .back-btn{
+      display:inline-block;
+      margin-bottom:20px;
+      text-decoration:none;
+      color:#1e40af;
+      font-weight:bold;
+    }
+
+    @media(max-width:700px){
+      .lesson-page{
+        width:94%;
+        margin-top:25px;
+      }
+
+      .lesson-hero{
+        padding:30px 22px;
+      }
+
+      .lesson-hero h1{
+        font-size:30px;
+      }
+
+      .lesson-card{
+        padding:23px 18px;
+      }
+
+      .lesson-content{
+        font-size:17px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav class="navbar">
+  <nav class="navbar">
+    <div class="brand">
+      <img src="logo.svg" alt="لغتي لغة الضاد">
+      <span>لغتي لغة الضاد</span>
+    </div>
 
-<a href="index.html" class="brand">
-<img src="logo.svg" alt="لغتي لغة الضاد">
-لغتي لغة الضاد
-</a>
+    <div class="nav-links">
+      <a href="student.html">الرئيسية</a>
+      <a href="courses.html">المراحل</a>
+      <a href="support.html">الدعم</a>
+    </div>
+  </nav>
 
-<div class="nav-links">
-<a href="index.html">الرئيسية</a>
-<a href="courses.html">المراحل الدراسية</a>
-<a href="student.html">لوحة الطالب</a>
-<a href="support.html">الدعم</a>
-</div>
+  <main class="lesson-page">
 
-</nav>
+    <div id="loading" class="loading">
+      ⏳ جاري تحميل الدرس...
+    </div>
 
+    <div id="lessonContainer" style="display:none;">
 
-<main class="lesson-page">
+      <a href="student.html" class="back-btn">
+        ← العودة إلى لوحة الطالب
+      </a>
 
+      <section class="lesson-hero">
 
-<!-- عنوان الدرس -->
+        <span class="lesson-badge">
+          📚 درس تعليمي
+        </span>
 
-<section class="lesson-header">
+        <h1 id="lessonTitle"></h1>
 
-<div class="icon">📖</div>
+        <p id="lessonDescription" class="lesson-description"></p>
 
-<h1>المبتدأ والخبر</h1>
+        <div class="lesson-meta">
+          <span id="lessonSubject" class="meta-item"></span>
+          <span id="lessonGrade" class="meta-item"></span>
+        </div>
 
-<p>
-درس مبسط يساعدك على فهم الجملة الاسمية
-والتمييز بين المبتدأ والخبر بسهولة.
-</p>
+      </section>
 
-<div class="lesson-badges">
+      <section class="lesson-card">
 
-<span class="badge">الصف الرابع الابتدائي</span>
+        <h2>📖 شرح الدرس</h2>
 
-<span class="badge">النحو</span>
+        <div id="lessonContent" class="lesson-content"></div>
 
-<span class="badge">درس تفاعلي</span>
+      </section>
 
-</div>
+      <section id="videoSection" class="lesson-card" style="display:none;">
 
-</section>
+        <h2>🎥 فيديو الدرس</h2>
 
+        <div id="videoContainer"></div>
 
-<div class="lesson-grid">
+      </section>
 
+      <section id="pdfSection" class="lesson-card" style="display:none;">
 
-<!-- المحتوى الرئيسي -->
+        <h2>📄 ملف الدرس</h2>
 
-<div>
+        <a
+          id="pdfLink"
+          class="pdf-btn"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          📥 فتح ملف PDF
+        </a>
 
+      </section>
 
-<!-- الفيديو -->
+      <section class="lesson-card">
 
-<section class="lesson-card">
+        <h2>📊 تقدمك في الدرس</h2>
 
-<h2>🎥 شرح الدرس</h2>
+        <div class="progress-box">
 
-<div class="video-box">
+          <div class="progress-top">
+            <span>نسبة الإنجاز</span>
+            <span id="progressText">0%</span>
+          </div>
 
-<div class="video-icon">▶</div>
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
 
-<h3>فيديو شرح الدرس</h3>
+        </div>
 
-<p style="color:#cbd5e1;">
-يمكن إضافة فيديو المعلمة هنا لاحقًا
-</p>
+        <button
+          id="completeButton"
+          class="complete-btn"
+          onclick="completeLesson()"
+        >
+          ✅ إكمال الدرس
+        </button>
 
-</div>
+      </section>
 
-</section>
+    </div>
 
+    <div id="errorContainer" class="lesson-card empty" style="display:none;">
 
-<!-- الشرح -->
+      <h2>😔 لم يتم العثور على الدرس</h2>
 
-<section class="lesson-card">
+      <p>
+        ربما تم حذف الدرس أو أن الرابط غير صحيح.
+      </p>
 
-<h2>📚 ما المبتدأ والخبر؟</h2>
+      <br>
 
-<p>
-الجملة الاسمية هي الجملة التي تبدأ باسم،
-وغالبًا تتكون من ركنين أساسيين:
-<strong>المبتدأ والخبر.</strong>
-</p>
+      <a href="student.html" class="main-btn">
+        العودة للوحة الطالب
+      </a>
 
-<div class="example">
+    </div>
 
-<strong>مثال:</strong>
+  </main>
 
-<br><br>
+  <footer>
+    <p>لغتي لغة الضاد © 2026</p>
+    <p>إشراف المعلمة سمر رمضان</p>
+    <p>تصميم Mohamed Hussain · تطوير M11</p>
+  </footer>
 
-الطالبُ مجتهدٌ.
 
-<br><br>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
 
-الطالبُ ← مبتدأ
+  <script>
 
-<br>
+    let currentLesson = null;
+    let currentProgress = 0;
 
-مجتهدٌ ← خبر
+    function escapeHTML(text){
+      if(text === null || text === undefined){
+        return "";
+      }
 
-</div>
+      return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+    }
 
-<p>
-المبتدأ هو الاسم الذي نتحدث عنه في الجملة،
-أما الخبر فهو الجزء الذي يخبرنا بشيء عن المبتدأ.
-</p>
 
-</section>
+    function getYouTubeEmbed(url){
 
+      if(!url) return null;
 
-<!-- أمثلة -->
+      try{
 
-<section class="lesson-card">
+        const parsed = new URL(url);
 
-<h2>💡 أمثلة سهلة</h2>
+        if(parsed.hostname.includes("youtube.com")){
 
-<div class="example">
-<strong>السماءُ صافيةٌ.</strong>
-<br>
-السماءُ: مبتدأ
-<br>
-صافيةٌ: خبر
-</div>
+          const id = parsed.searchParams.get("v");
 
-<div class="example">
-<strong>الولدُ نشيطٌ.</strong>
-<br>
-الولدُ: مبتدأ
-<br>
-نشيطٌ: خبر
-</div>
+          if(id){
+            return `https://www.youtube.com/embed/${id}`;
+          }
 
-<div class="example">
-<strong>المدرسةُ جميلةٌ.</strong>
-<br>
-المدرسةُ: مبتدأ
-<br>
-جميلةٌ: خبر
-</div>
+          if(parsed.pathname.startsWith("/embed/")){
+            return url;
+          }
+        }
 
-</section>
+        if(parsed.hostname === "youtu.be"){
 
+          const id = parsed.pathname.substring(1);
 
-<!-- الاختبار -->
+          if(id){
+            return `https://www.youtube.com/embed/${id}`;
+          }
+        }
 
-<section class="lesson-card">
+      }catch(error){
+        console.log("Video URL Error:",error);
+      }
 
-<h2>🧠 اختبر نفسك</h2>
+      return null;
+    }
 
-<p>
-أجب عن الأسئلة التالية ثم اضغط على
-<strong>تصحيح الاختبار</strong>.
-</p>
 
+    function updateProgressUI(progress){
 
-<!-- سؤال 1 -->
+      currentProgress = progress || 0;
 
-<div class="question">
+      document.getElementById("progressText").textContent =
+        Math.round(currentProgress) + "%";
 
-<h3>
-1. ما المبتدأ في الجملة:
-"الطالبُ مجتهدٌ"؟
-</h3>
+      document.getElementById("progressFill").style.width =
+        currentProgress + "%";
 
-<label class="option">
-<input type="radio" name="q1" value="a">
-مجتهدٌ
-</label>
+      const button =
+        document.getElementById("completeButton");
 
-<label class="option">
-<input type="radio" name="q1" value="b">
-الطالبُ
-</label>
+      if(currentProgress >= 100){
 
-<label class="option">
-<input type="radio" name="q1" value="c">
-الجملة
-</label>
+        button.textContent = "✅ تم إكمال الدرس";
 
-</div>
+        button.classList.add("done");
 
+      }else{
 
-<!-- سؤال 2 -->
+        button.textContent = "✅ إكمال الدرس";
 
-<div class="question">
+        button.classList.remove("done");
+      }
+    }
 
-<h3>
-2. ما الخبر في الجملة:
-"السماءُ صافيةٌ"؟
-</h3>
 
-<label class="option">
-<input type="radio" name="q2" value="a">
-السماءُ
-</label>
+    async function loadLesson(){
 
-<label class="option">
-<input type="radio" name="q2" value="b">
-صافيةٌ
-</label>
+      const params =
+        new URLSearchParams(window.location.search);
 
-<label class="option">
-<input type="radio" name="q2" value="c">
-لا يوجد خبر
-</label>
+      const lessonId = params.get("id");
 
-</div>
+      if(!lessonId){
 
+        showError();
+        return;
+      }
 
-<!-- سؤال 3 -->
 
-<div class="question">
+      try{
 
-<h3>
-3. الجملة الاسمية تتكون غالبًا من:
-</h3>
+        const user = await getCurrentUser();
 
-<label class="option">
-<input type="radio" name="q3" value="a">
-فعل وفاعل
-</label>
+        if(!user){
 
-<label class="option">
-<input type="radio" name="q3" value="b">
-مبتدأ وخبر
-</label>
+          window.location.href = "login.html";
+          return;
+        }
 
-<label class="option">
-<input type="radio" name="q3" value="c">
-حرف وفعل
-</label>
 
-</div>
+        const profile = await getMyProfile();
 
+        if(!profile || profile.role !== "student"){
 
-<!-- سؤال 4 -->
+          await supabaseClient.auth.signOut();
 
-<div class="question">
+          window.location.href = "login.html";
+          return;
+        }
 
-<h3>
-4. ما المبتدأ في:
-"المدرسةُ جميلةٌ"؟
-</h3>
 
-<label class="option">
-<input type="radio" name="q4" value="a">
-جميلةٌ
-</label>
+        const lesson =
+          await getLesson(lessonId);
 
-<label class="option">
-<input type="radio" name="q4" value="b">
-المدرسةُ
-</label>
+        if(!lesson){
 
-<label class="option">
-<input type="radio" name="q4" value="c">
-جميلة
-</label>
+          showError();
+          return;
+        }
 
-</div>
 
+        currentLesson = lesson;
 
-<!-- سؤال 5 -->
 
-<div class="question">
+        document.title =
+          `${lesson.title} | لغتي لغة الضاد`;
 
-<h3>
-5. ما الخبر في:
-"الولدُ نشيطٌ"؟
-</h3>
 
-<label class="option">
-<input type="radio" name="q5" value="a">
-الولدُ
-</label>
+        document.getElementById("lessonTitle")
+          .textContent = lesson.title || "درس بدون عنوان";
 
-<label class="option">
-<input type="radio" name="q5" value="b">
-نشيطٌ
-</label>
 
-<label class="option">
-<input type="radio" name="q5" value="c">
-ال
-</label>
+        document.getElementById("lessonDescription")
+          .textContent =
+            lesson.description ||
+            "ابدأ دراسة هذا الدرس وتعلم بطريقة سهلة وممتعة.";
 
-</div>
 
+        document.getElementById("lessonSubject")
+          .textContent =
+            "📚 " + (lesson.subject || "اللغة العربية");
 
-<button onclick="checkQuiz()" class="main-btn" style="border:0;cursor:pointer;">
 
-تصحيح الاختبار ✅
+        document.getElementById("lessonGrade")
+          .textContent =
+            "🎓 " + (lesson.grade || "جميع المراحل");
 
-</button>
 
+        document.getElementById("lessonContent")
+          .textContent =
+            lesson.content ||
+            "لم تتم إضافة شرح لهذا الدرس بعد.";
 
-<div id="quizResult" class="quiz-result">
 
-<h2>نتيجتك 🎉</h2>
+        /*
+          تحميل الفيديو
+        */
 
-<div id="score" class="score-number">0 / 5</div>
+        if(lesson.video_url){
 
-<p id="resultMessage"></p>
+          const videoSection =
+            document.getElementById("videoSection");
 
-</div>
+          const videoContainer =
+            document.getElementById("videoContainer");
 
-</section>
+          const embed =
+            getYouTubeEmbed(lesson.video_url);
 
 
-<!-- إكمال الدرس -->
+          if(embed){
 
-<section class="lesson-card complete-box">
+            videoContainer.innerHTML = `
+              <div class="video-box">
+                <iframe
+                  src="${escapeHTML(embed)}"
+                  title="فيديو الدرس"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            `;
 
-<h2>🏆 أنهيت الدرس؟</h2>
+          }else{
 
-<p>
-بعد مشاهدة الشرح وحل الاختبار،
-يمكنك تسجيل الدرس كمكتمل.
-</p>
+            videoContainer.innerHTML = `
+              <a
+                class="video-link"
+                href="${escapeHTML(lesson.video_url)}"
+                target="_blank"
+                rel="noopener">
+                🎥 فتح فيديو الدرس
+              </a>
+            `;
+          }
 
-<br>
+          videoSection.style.display = "block";
+        }
 
-<button onclick="completeLesson()" class="main-btn"
-style="border:0;cursor:pointer;">
 
-إكمال الدرس ✅
+        /*
+          تحميل ملف PDF
+        */
 
-</button>
+        if(lesson.pdf_url){
 
-</section>
+          document.getElementById("pdfLink").href =
+            lesson.pdf_url;
 
-</div>
+          document.getElementById("pdfSection")
+            .style.display = "block";
+        }
 
 
-<!-- الشريط الجانبي -->
+        /*
+          قراءة تقدم الطالب
+        */
 
-<aside>
+        const progressList =
+          await getMyProgress();
 
-<section class="lesson-card">
+        const savedProgress =
+          progressList.find(
+            item => String(item.lesson_id) === String(lessonId)
+          );
 
-<h2 class="side-title">
-📚 دروس أخرى
-</h2>
 
-<div class="lesson-list">
+        if(savedProgress){
 
-<a href="lesson.html">
-📖 المبتدأ والخبر
-</a>
+          updateProgressUI(
+            savedProgress.completed
+              ? 100
+              : (savedProgress.progress || 0)
+          );
 
-<a href="lesson.html">
-✏️ أنواع الكلمة
-</a>
+        }else{
 
-<a href="lesson.html">
-📘 الجملة الاسمية
-</a>
+          /*
+            تسجيل بداية الدرس بنسبة 10%
+          */
 
-<a href="lesson.html">
-📝 علامات الإعراب
-</a>
+          await saveLessonProgress(
+            lessonId,
+            10,
+            false
+          );
 
-<a href="lesson.html">
-📚 مهارات القراءة
-</a>
+          updateProgressUI(10);
+        }
 
-</div>
 
-</section>
+        document.getElementById("loading")
+          .style.display = "none";
 
+        document.getElementById("lessonContainer")
+          .style.display = "block";
 
-<section class="lesson-card">
 
-<h2 class="side-title">
-📊 تقدمك
-</h2>
+      }catch(error){
 
-<p>
-نسبة إكمال هذا الدرس
-</p>
+        console.error("Lesson Page Error:",error);
 
-<div class="progress-box">
+        showError();
+      }
+    }
 
-<div class="progress-bar">
 
-<div id="lessonProgress" class="progress-fill"></div>
+    async function completeLesson(){
 
-</ 
+      if(!currentLesson){
+        return;
+      }
+
+
+      const button =
+        document.getElementById("completeButton");
+
+      button.disabled = true;
+      button.textContent = "⏳ جاري حفظ التقدم...";
+
+
+      try{
+
+        const saved =
+          await saveLessonProgress(
+            currentLesson.id,
+            100,
+            true
+          );
+
+
+        if(!saved){
+
+          throw new Error("لم يتم حفظ التقدم.");
+        }
+
+
+        updateProgressUI(100);
+
+
+        button.textContent =
+          "🎉 أحسنت! تم إكمال الدرس";
+
+
+      }catch(error){
+
+        console.error(error);
+
+        button.disabled = false;
+
+        button.textContent =
+          "❌ حدث خطأ - حاول مرة أخرى";
+
+        alert(
+          "تعذر حفظ تقدمك الآن. تأكد من اتصال الإنترنت وحاول مرة أخرى."
+        );
+      }
+    }
+
+
+    function showError(){
+
+      document.getElementById("loading")
+        .style.display = "none";
+
+      document.getElementById("lessonContainer")
+        .style.display = "none";
+
+      document.getElementById("errorContainer")
+        .style.display = "block";
+    }
+
+
+    loadLesson();
+
+  </script>
+
+</body>
+</html>
