@@ -166,7 +166,21 @@
 </style>
 
 </head>
+<script>
 
+function logout(){
+
+localStorage.removeItem("studentLoggedIn");
+
+localStorage.removeItem("userType");
+
+localStorage.removeItem("userName");
+
+window.location.href="login.html";
+
+}
+
+</script>
 <body>
 
 <script>
@@ -180,7 +194,7 @@ window.location.href = "login.html";
 </script> 
 
 <nav class="navbar">
-
+<a href="#" onclick="logout()">تسجيل الخروج 🚪</a>
 <a href="index.html" class="brand">
 
 <img src="logo.svg" alt="لغتي لغة الضاد">
