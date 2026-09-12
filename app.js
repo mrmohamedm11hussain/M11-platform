@@ -398,3 +398,203 @@ supabaseClient.auth.onAuthStateChange(
 // =====================================================
 
 console.log("لغتي لغة الضاد - Supabase Connected ✅");
+// =====================================================
+// QUIZ SYSTEM - لغتي لغة الضاد
+// =====================================================
+
+async function getQuizByLesson(lessonId) {
+  const { data, error } = await supabaseClient
+    .from("quizzes")
+    .select(`
+      *,
+      quiz_questions (*)
+    `)
+    .eq("lesson_id", lessonId)
+    .eq("is_published", true)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Quiz Error:", error);
+    return null;
+  }
+
+  if (data && data.quiz_questions) {
+    data.quiz_questions.sort(
+      (a, b) => a.question_order - b.question_order
+    );
+  }
+
+  return data;
+}
+
+
+async function createQuiz({
+  lesson_id,
+  title,
+  description = "",
+  is_published = false
+}) {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("يجب تسجيل الدخول أولاً.");
+  }
+
+  const profile = await getMyProfile();
+
+  if (!profile || profile.role !== "teacher") {
+    throw new Error("ليس لديك صلاحية إنشاء اختبار.");
+  }
+
+  const { data, error } = await supabaseClient
+    .from("quizzes")
+    .insert([{
+      lesson_id,
+      title,
+      description,
+      is_published
+    }])
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Create Quiz Error:", error);
+    throw error;
+  }
+
+  return data;
+}
+
+
+async function addQuizQuestion({
+  quiz_id,
+  question,
+  option_a,
+  option_b,
+  option_c,
+  option_d,
+  correct_answer,
+  points = 1,
+  question_order = 0
+}) {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("يجب تسجيل الدخول أولاً.");
+  }
+
+  const profile = await getMyProfile();
+
+  if (!profile || profile.role !== "teacher") {
+    throw new Error("ليس لديك صلاحية إضافة الأسئلة.");
+  }
+
+  const { data, error } = await supabaseClient
+    .from("quiz_questions")
+    .insert([{
+      quiz_id,
+      question,
+      option_a,
+      option_b,
+      option_c,
+      option_d,
+      correct_answer,
+      points,
+      question_order
+    }])
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Add Question Error:", error);
+    throw error;
+  }
+
+  return data;
+}
+
+
+async function publishQuiz(quizId, published = true) {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("يجب تسجيل الدخول أولاً.");
+  }
+
+  const { data, error } = await supabaseClient
+    .from("quizzes")
+    .update({
+      is_published: published
+    })
+    .eq("id", quizId)
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Publish Quiz Error:", error);
+    throw error;
+  }
+
+  return data;
+}
+
+
+async function saveQuizAttempt(
+  quizId,
+  score,
+  totalPoints
+) {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("يجب تسجيل الدخول أولاً.");
+  }
+
+  const percentage =
+    totalPoints > 0
+      ? Math.round((score / totalPoints) * 100)
+      : 0;
+
+  const { data, error } = await supabaseClient
+    .from("quiz_attempts")
+    .insert([{
+      quiz_id: quizId,
+      student_id: user.id,
+      score,
+      total_points: totalPoints,
+      percentage
+    }])
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Save Quiz Attempt Error:", error);
+    throw error;
+  }
+
+  return data;
+}
+
+
+async function getMyQuizAttempts() {
+  const user = await getCurrentUser();
+
+  if (!user) return [];
+
+  const { data, error } = await supabaseClient
+    .from("quiz_attempts")
+    .select("*")
+    .eq("student_id", user.id)
+    .order("submitted_at", {
+      ascending: false
+    });
+
+  if (error) {
+    console.error("Quiz Attempts Error:", error);
+    return [];
+  }
+
+  return data || [];
+            }
