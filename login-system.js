@@ -1,154 +1,325 @@
 // =====================================================
 // لغتي لغة الضاد
-// Real Supabase Login
+// Supabase Authentication
 // =====================================================
 
-const userType = document.getElementById("userType");
-const teacherPasswordField = document.getElementById("teacherPasswordField");
-const loginForm = document.getElementById("loginForm");
-const loginMessage = document.getElementById("loginMessage");
+const userType =
+  document.getElementById("userType");
+
+const usernameInput =
+  document.getElementById("username");
+
+const passwordInput =
+  document.getElementById("password");
+
+const usernameLabel =
+  document.getElementById("usernameLabel");
+
+const teacherNote =
+  document.getElementById("teacherNote");
+
+const loginForm =
+  document.getElementById("loginForm");
+
+const loginMessage =
+  document.getElementById("loginMessage");
+
+const loginButton =
+  document.getElementById("loginButton");
 
 
-// إظهار كلمة مرور المعلمة
-if (userType) {
-  userType.addEventListener("change", function () {
+// =====================================================
+// CHANGE ACCOUNT TYPE
+// =====================================================
 
-    if (this.value === "teacher") {
-      teacherPasswordField.style.display = "block";
-    } else {
-      teacherPasswordField.style.display = "none";
-    }
+userType.addEventListener("change", function(){
 
-  });
-}
+  if(this.value === "teacher"){
 
+    usernameLabel.textContent =
+      "اسم المستخدم";
 
-// إظهار / إخفاء كلمة المرور
-function togglePassword() {
+    usernameInput.placeholder =
+      "مثال: samar";
 
-  const input = document.getElementById("teacherPassword");
+    teacherNote.style.display =
+      "block";
 
-  if (!input) return;
+  }else{
 
-  if (input.type === "password") {
-    input.type = "text";
-  } else {
-    input.type = "password";
+    usernameLabel.textContent =
+      "البريد الإلكتروني";
+
+    usernameInput.placeholder =
+      "أدخل بريدك الإلكتروني";
+
+    teacherNote.style.display =
+      "none";
   }
+
+});
+
+
+// =====================================================
+// PASSWORD VISIBILITY
+// =====================================================
+
+function togglePassword(){
+
+  if(passwordInput.type === "password"){
+
+    passwordInput.type = "text";
+
+  }else{
+
+    passwordInput.type = "password";
+
+  }
+
 }
 
 
-// رسالة الخطأ
-function showError(message) {
+// =====================================================
+// MESSAGE
+// =====================================================
 
-  if (!loginMessage) return;
+function showMessage(text, success = false){
 
-  loginMessage.textContent = message;
+  loginMessage.textContent = text;
+
   loginMessage.style.display = "block";
+
+  if(success){
+
+    loginMessage.style.background = "#dcfce7";
+    loginMessage.style.color = "#166534";
+
+  }else{
+
+    loginMessage.style.background = "#fee2e2";
+    loginMessage.style.color = "#991b1b";
+
+  }
+
 }
 
 
-// تسجيل الدخول
-if (loginForm) {
+// =====================================================
+// LOGIN
+// =====================================================
 
-  loginForm.addEventListener("submit", async function (event) {
+loginForm.addEventListener(
+  "submit",
+  async function(event){
 
     event.preventDefault();
 
-    const username =
-      document.getElementById("username").value.trim();
 
-    const type =
-      document.getElementById("userType").value;
+    const identifier =
+      usernameInput.value.trim();
+
+    const password =
+      passwordInput.value;
 
 
-    if (!username) {
+    if(!identifier){
 
-      showError("من فضلك اكتب اسم المستخدم.");
+      showMessage(
+        "من فضلك أدخل بيانات الدخول."
+      );
 
       return;
+
     }
 
 
-    // =================================================
-    // TEACHER LOGIN
-    // =================================================
+    if(!password){
 
-    if (type === "teacher") {
+      showMessage(
+        "من فضلك أدخل كلمة المرور."
+      );
 
-      const password =
-        document.getElementById("teacherPassword").value;
+      return;
+
+    }
 
 
-      if (!password) {
+    loginButton.disabled = true;
 
-        showError("من فضلك اكتب كلمة المرور.");
+    loginButton.textContent =
+      "⏳ جاري تسجيل الدخول...";
+
+
+    try{
+
+
+      // =================================================
+      // TEACHER
+      // =================================================
+
+      if(userType.value === "teacher"){
+
+        if(identifier !== "samar"){
+
+          showMessage(
+            "اسم مستخدم المعلمة غير صحيح."
+          );
+
+          return;
+        }
+
+
+        const email =
+          "samar@loghaty.local";
+
+
+        const { data, error } =
+          await supabaseClient.auth.signInWithPassword({
+
+            email: email,
+
+            password: password
+
+          });
+
+
+        if(error){
+
+          console.error(error);
+
+          showMessage(
+            "بيانات المعلمة غير صحيحة."
+          );
+
+          return;
+
+        }
+
+
+        const profile =
+          await getMyProfile();
+
+
+        if(!profile || profile.role !== "teacher"){
+
+          await supabaseClient.auth.signOut();
+
+          showMessage(
+            "هذا الحساب ليس حساب معلمة."
+          );
+
+          return;
+
+        }
+
+
+        localStorage.setItem(
+          "userName",
+          "المعلمة سمر رمضان"
+        );
+
+        localStorage.setItem(
+          "userType",
+          "teacher"
+        );
+
+
+        window.location.href =
+          "teacher.html";
 
         return;
+
       }
 
 
-      // اسم المستخدم الخاص بالمعلمة
-      if (username !== "samar") {
+      // =================================================
+      // STUDENT
+      // =================================================
 
-        showError("اسم مستخدم المعلمة غير صحيح.");
+      const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
 
-        return;
-      }
+          email: identifier,
 
+          password: password
 
-      // البريد الداخلي لحساب المعلمة
-      const email = "samar@loghaty.local";
-
-
-      const {
-        data,
-        error
-      } = await supabaseClient.auth.signInWithPassword({
-
-        email: email,
-
-        password: password
-
-      });
+        });
 
 
-      if (error) {
+      if(error){
 
         console.error(error);
 
-        showError("بيانات تسجيل الدخول غير صحيحة.");
+        showMessage(
+          "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+        );
 
         return;
+
       }
 
 
-      // حفظ البيانات محليًا للواجهة فقط
+      const profile =
+        await getMyProfile();
+
+
+      if(!profile){
+
+        await supabaseClient.auth.signOut();
+
+        showMessage(
+          "لم يتم العثور على بيانات الطالب."
+        );
+
+        return;
+
+      }
+
+
+      if(profile.role !== "student"){
+
+        await supabaseClient.auth.signOut();
+
+        showMessage(
+          "هذا الحساب ليس حساب طالب."
+        );
+
+        return;
+
+      }
+
+
       localStorage.setItem(
         "userName",
-        "المعلمة سمر رمضان"
+        profile.full_name || "الطالب"
       );
 
       localStorage.setItem(
         "userType",
-        "teacher"
+        "student"
       );
 
 
-      window.location.href = "teacher.html";
+      window.location.href =
+        "student.html";
 
-      return;
+
+    }catch(error){
+
+      console.error(error);
+
+      showMessage(
+        "حدث خطأ غير متوقع. حاول مرة أخرى."
+      );
+
+    }finally{
+
+      loginButton.disabled = false;
+
+      loginButton.textContent =
+        "تسجيل الدخول";
+
     }
 
-
-    // =================================================
-    // STUDENT LOGIN
-    // =================================================
-
-    showError(
-      "تسجيل الطلاب سيتم تفعيله في الخطوة التالية."
-    );
-
-  });
-
-}
+  }
+);
