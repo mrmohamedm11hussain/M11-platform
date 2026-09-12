@@ -5,140 +5,224 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>
-تسجيل الدخول | لغتي لغة الضاد
-</title>
+<title>تسجيل الدخول | لغتي لغة الضاد</title>
 
 <link rel="stylesheet" href="style-new.css">
 
-
 <style>
 
-.login-section{
+.login-page{
 
-min-height:80vh;
+min-height:calc(100vh - 80px);
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
 
-padding:40px;
+justify-content:center;
+
+padding:40px 20px;
 
 }
 
-
-
 .login-box{
-
-background:white;
 
 width:100%;
 
-max-width:450px;
+max-width:480px;
+
+background:white;
 
 padding:45px;
 
 border-radius:35px;
 
-box-shadow:0 20px 50px #ddd;
+box-shadow:0 20px 60px rgba(0,0,0,.10);
 
 text-align:center;
 
+animation:loginShow .7s ease;
+
 }
 
+@keyframes loginShow{
 
+from{
 
-.login-box img{
+opacity:0;
 
-width:100px;
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.login-logo{
+
+width:95px;
+
+margin-bottom:15px;
+
+}
+
+.login-box h1{
+
+font-size:36px;
+
+color:#1e40af;
+
+margin-bottom:10px;
+
+}
+
+.login-box .subtitle{
+
+color:#64748b;
+
+line-height:1.8;
+
+margin-bottom:30px;
+
+}
+
+.login-field{
+
+text-align:right;
 
 margin-bottom:20px;
 
 }
 
+.login-field label{
 
+display:block;
 
-.login-box h1{
+font-weight:bold;
 
-color:#1e40af;
+margin-bottom:8px;
 
-font-size:35px;
-
-}
-
-
-
-.login-box p{
-
-color:#64748b;
-
-line-height:2;
-
-margin:15px;
+color:#334155;
 
 }
 
+.login-field input,
 
-
-.login-box input,
-.login-box select{
+.login-field select{
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
-margin:10px 0;
+border:2px solid #e2e8f0;
 
 border-radius:15px;
 
-border:1px solid #ddd;
-
 font-size:16px;
+
+outline:none;
+
+background:white;
 
 }
 
+.login-field input:focus,
 
+.login-field select:focus{
 
-.login-btn{
+border-color:#1e40af;
 
-width:100%;
+}
 
-border:none;
+.password-wrapper{
+
+position:relative;
+
+}
+
+.password-wrapper input{
+
+padding-left:55px;
+
+}
+
+.show-password{
+
+position:absolute;
+
+left:12px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+border:0;
+
+background:none;
+
+font-size:20px;
 
 cursor:pointer;
 
-background:#1e40af;
+}
 
-color:white;
+.login-button{
+
+width:100%;
+
+border:0;
+
+cursor:pointer;
+
+margin-top:10px;
+
+}
+
+.login-message{
+
+display:none;
+
+background:#fee2e2;
+
+color:#b91c1c;
+
+padding:14px;
+
+border-radius:14px;
+
+margin-bottom:20px;
+
+font-weight:bold;
+
+}
+
+.teacher-note{
+
+margin-top:20px;
 
 padding:15px;
 
-border-radius:20px;
+background:#eff6ff;
 
-font-size:18px;
+border-radius:15px;
 
-margin-top:15px;
+color:#1e40af;
 
-transition:.3s;
-
-}
-
-
-
-.login-btn:hover{
-
-background:#d4a017;
+font-size:14px;
 
 }
-
-
 
 </style>
-
 
 </head>
 
@@ -148,115 +232,179 @@ background:#d4a017;
 
 <nav class="navbar">
 
+<a href="index.html" class="brand">
 
-<div class="brand">
-
-<img src="logo.svg">
+<img src="logo.svg"
+alt="لغتي لغة الضاد">
 
 لغتي لغة الضاد
 
-</div>
-
+</a>
 
 <div class="nav-links">
 
 <a href="index.html">الرئيسية</a>
 
-<a href="courses.html">الكورسات</a>
+<a href="courses.html">المراحل الدراسية</a>
 
 <a href="support.html">الدعم</a>
 
 </div>
 
-
 </nav>
 
 
+<main class="login-page">
 
+<section class="login-box">
 
-
-<section class="login-section">
-
-
-<div class="login-box">
-
-
-<img src="logo.svg">
-
+<img
+src="logo.svg"
+class="login-logo"
+alt="لغتي لغة الضاد">
 
 
 <h1>
-أهلاً بك 👋
+تسجيل الدخول
 </h1>
 
 
-<p>
-ادخل إلى منصة لغتي لغة الضاد
+<p class="subtitle">
+
+أهلاً بك في منصة
+<strong>لغتي لغة الضاد</strong>
+
+<br>
+
+سجّل الدخول للوصول إلى محتوى المنصة.
+
 </p>
 
 
+<div
+id="loginMessage"
+class="login-message">
+</div>
 
 
-<input 
+<form id="loginForm">
+
+
+<div class="login-field">
+
+<label for="username">
+
+اسم المستخدم
+
+</label>
+
+<input
+type="text"
 id="username"
-placeholder="اكتب اسمك"
->
+placeholder="اكتب اسم المستخدم"
+autocomplete="username"
+required>
+
+</div>
 
 
+<div class="login-field">
+
+<label for="userType">
+
+نوع الحساب
+
+</label>
 
 <select id="userType">
 
 <option value="student">
-👨‍🎓 طالب
+طالب
 </option>
-
 
 <option value="teacher">
-👩‍🏫 معلمة
+المعلمة
 </option>
-
 
 </select>
 
+</div>
 
 
-<button class="login-btn" onclick="login()">
+<div
+id="teacherPasswordField"
+class="login-field"
+style="display:none;">
 
-دخول
+<label for="teacherPassword">
+
+كلمة مرور المعلمة
+
+</label>
+
+
+<div class="password-wrapper">
+
+<input
+type="password"
+id="teacherPassword"
+placeholder="كلمة مرور المعلمة"
+autocomplete="current-password">
+
+<button
+type="button"
+class="show-password"
+onclick="togglePassword()">
+
+👁️
+
+</button>
+
+</div>
+
+</div>
+
+
+<button
+type="submit"
+class="main-btn login-button">
+
+دخول إلى المنصة 🚀
 
 </button>
 
 
+</form>
+
+
+<div class="teacher-note">
+
+👩‍🏫 حساب المعلمة مخصص لإدارة الدروس والطلاب.
 
 </div>
 
 
 </section>
 
-
-
+</main>
 
 
 <footer>
 
+<p>
 لغتي لغة الضاد © 2026
+</p>
 
-<br>
-
-بإشراف المعلمة سمر رمضان
-
-<br>
-
+<p>
+إشراف المعلمة سمر رمضان |
 تطوير M11
+</p>
 
 </footer>
 
 
-
-
 <script src="login-system.js"></script>
-
 
 </body>
 
-</html> 
+</html>
