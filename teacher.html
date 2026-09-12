@@ -222,7 +222,7 @@ window.location.href = "login.html";
 </div>
 
 </nav>
-
+<a href="#" onclick="logout()">تسجيل الخروج 🚪</a>
 
 <main class="teacher-page">
 
@@ -645,7 +645,21 @@ renderLessons();
 renderLessons();
 
 </script>
+<script>
 
+function logout(){
+
+localStorage.removeItem("teacherLoggedIn");
+
+localStorage.removeItem("userType");
+
+localStorage.removeItem("userName");
+
+window.location.href="login.html";
+
+}
+
+</script>
 </body>
 
   </html>
