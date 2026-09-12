@@ -2,336 +2,644 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>درس اللغة العربية | لغتي لغة الضاد</title>
+<title>المبتدأ والخبر | لغتي لغة الضاد</title>
 
-<link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="style-new.css">
 
 <style>
 
-.lesson-container{
-
-width:90%;
-max-width:1000px;
-margin:40px auto;
-
+.lesson-page{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
 }
 
-
-
-.lesson-cover{
-
-background:linear-gradient(135deg,#0f172a,#1e40af);
-color:white;
-padding:45px;
-border-radius:30px;
-text-align:center;
-
+.lesson-header{
+    background:white;
+    border-radius:35px;
+    padding:45px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    margin-bottom:35px;
 }
 
-
-.lesson-cover h1{
-
-font-size:40px;
-
+.lesson-header .icon{
+    font-size:65px;
+    margin-bottom:15px;
 }
 
-
-.teacher-name{
-
-color:#facc15;
-font-size:20px;
-
+.lesson-header h1{
+    color:#1e40af;
+    font-size:45px;
+    margin-bottom:15px;
 }
 
-
-
-.box{
-
-background:white;
-padding:30px;
-border-radius:25px;
-margin-top:30px;
-box-shadow:0 10px 30px #ddd;
-
+.lesson-header p{
+    font-size:20px;
+    color:#475569;
+    line-height:2;
 }
 
-
-
-.box h2{
-
-color:#1e40af;
-margin-bottom:20px;
-
+.lesson-badges{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
-
-
-.video{
-
-height:350px;
-background:#111827;
-border-radius:20px;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:28px;
-
+.badge{
+    background:#eff6ff;
+    color:#1e40af;
+    padding:10px 18px;
+    border-radius:50px;
+    font-weight:bold;
 }
 
-
-
-.summary li{
-
-margin:15px;
-font-size:18px;
-
+.lesson-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
 }
 
-
-
-.file{
-
-background:#f8fafc;
-padding:15px;
-border-radius:15px;
-margin:10px 0;
-
+.lesson-card{
+    background:white;
+    padding:35px;
+    border-radius:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.07);
+    margin-bottom:30px;
 }
 
+.lesson-card h2{
+    color:#1e40af;
+    font-size:30px;
+    margin-bottom:20px;
+}
 
+.lesson-card p{
+    font-size:19px;
+    line-height:2;
+    color:#334155;
+}
+
+.video-box{
+    height:330px;
+    background:linear-gradient(135deg,#0f172a,#1e40af);
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+}
+
+.video-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:white;
+    color:#1e40af;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.example{
+    background:#f8fafc;
+    border-right:5px solid #facc15;
+    padding:20px;
+    border-radius:15px;
+    margin:15px 0;
+    font-size:20px;
+}
 
 .question{
-
-background:#f8fafc;
-padding:20px;
-border-radius:15px;
-margin-top:15px;
-
+    background:#f8fafc;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:25px;
 }
 
-
-
-.finish{
-
-margin-top:20px;
-width:100%;
-
+.question h3{
+    margin-bottom:18px;
+    color:#0f172a;
 }
 
+.option{
+    display:block;
+    background:white;
+    border:2px solid #e2e8f0;
+    padding:15px;
+    border-radius:15px;
+    margin:10px 0;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.option:hover{
+    border-color:#1e40af;
+    transform:translateX(-4px);
+}
+
+.option input{
+    margin-left:10px;
+}
+
+.correct{
+    border-color:#16a34a !important;
+    background:#f0fdf4 !important;
+}
+
+.wrong{
+    border-color:#dc2626 !important;
+    background:#fef2f2 !important;
+}
+
+.quiz-result{
+    display:none;
+    text-align:center;
+    padding:30px;
+    border-radius:25px;
+    background:#eff6ff;
+    margin-top:25px;
+}
+
+.quiz-result h2{
+    color:#1e40af;
+    font-size:35px;
+}
+
+.score-number{
+    font-size:55px;
+    font-weight:bold;
+    color:#d4a017;
+    margin:15px;
+}
+
+.side-title{
+    color:#1e40af;
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.lesson-list a{
+    display:block;
+    text-decoration:none;
+    color:#334155;
+    background:#f8fafc;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:10px;
+    transition:.25s;
+}
+
+.lesson-list a:hover{
+    background:#eff6ff;
+    color:#1e40af;
+    transform:translateX(-5px);
+}
+
+.progress-box{
+    margin-top:25px;
+}
+
+.progress-bar{
+    height:15px;
+    background:#e2e8f0;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#1e40af;
+    transition:1s;
+}
+
+.complete-box{
+    text-align:center;
+}
+
+@media(max-width:800px){
+
+    .lesson-grid{
+        grid-template-columns:1fr;
+    }
+
+    .lesson-header h1{
+        font-size:32px;
+    }
+
+    .lesson-card{
+        padding:25px;
+    }
+
+    .video-box{
+        height:250px;
+    }
+}
 
 </style>
 
 </head>
 
-<script>
-loadStudent();
-</script>
-
 <body>
 
-
-
 <nav class="navbar">
-<a href="contact.html">تواصل</a>
-<a href="support.html">الدعم الفني</a>
-<div class="brand">
-📚 لغتي لغة الضاد
-</div>
 
+<a href="index.html" class="brand">
+<img src="logo.svg" alt="لغتي لغة الضاد">
+لغتي لغة الضاد
+</a>
 
 <div class="nav-links">
-
-<a href="student.html">
-لوحة الطالب
-</a>
-
-<a href="courses.html">
-الدروس
-</a>
-
+<a href="index.html">الرئيسية</a>
+<a href="courses.html">المراحل الدراسية</a>
+<a href="student.html">لوحة الطالب</a>
+<a href="support.html">الدعم</a>
 </div>
 
 </nav>
 
 
+<main class="lesson-page">
 
 
-<div class="lesson-container">
+<!-- عنوان الدرس -->
 
+<section class="lesson-header">
 
+<div class="icon">📖</div>
 
-<div class="lesson-cover">
-
-<h1>
-المبتدأ والخبر
-</h1>
-
-<p class="teacher-name">
-👩‍🏫 المعلمة سمر رمضان
-</p>
+<h1>المبتدأ والخبر</h1>
 
 <p>
-قسم النحو - اللغة العربية
+درس مبسط يساعدك على فهم الجملة الاسمية
+والتمييز بين المبتدأ والخبر بسهولة.
+</p>
+
+<div class="lesson-badges">
+
+<span class="badge">الصف الرابع الابتدائي</span>
+
+<span class="badge">النحو</span>
+
+<span class="badge">درس تفاعلي</span>
+
+</div>
+
+</section>
+
+
+<div class="lesson-grid">
+
+
+<!-- المحتوى الرئيسي -->
+
+<div>
+
+
+<!-- الفيديو -->
+
+<section class="lesson-card">
+
+<h2>🎥 شرح الدرس</h2>
+
+<div class="video-box">
+
+<div class="video-icon">▶</div>
+
+<h3>فيديو شرح الدرس</h3>
+
+<p style="color:#cbd5e1;">
+يمكن إضافة فيديو المعلمة هنا لاحقًا
 </p>
 
 </div>
 
+</section>
 
 
+<!-- الشرح -->
 
-<div class="box">
+<section class="lesson-card">
 
-<h2>
-🎥 فيديو الشرح
-</h2>
+<h2>📚 ما المبتدأ والخبر؟</h2>
 
+<p>
+الجملة الاسمية هي الجملة التي تبدأ باسم،
+وغالبًا تتكون من ركنين أساسيين:
+<strong>المبتدأ والخبر.</strong>
+</p>
 
-<div class="video">
+<div class="example">
 
-مكان فيديو الدرس
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<h2>
-📖 ملخص الدرس
-</h2>
-
-
-<ul class="summary">
-
-<li>
-الجملة الاسمية تبدأ باسم.
-</li>
-
-<li>
-المبتدأ يكون غالبًا مرفوعًا.
-</li>
-
-<li>
-الخبر يكمل معنى الجملة.
-</li>
-
-</ul>
-
-
-</div>
-
-
-
-
-
-<div class="box">
-
-<h2>
-📄 ملفات الدرس
-</h2>
-
-
-<div class="file">
-📘 ملخص المبتدأ والخبر PDF
-</div>
-
-
-<div class="file">
-📝 واجب تدريبي
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="box">
-
-
-<h2>
-⭐ اختبار سريع
-</h2>
-
-
-
-<div class="question">
-
-ما نوع الجملة: "العلم نور"؟
+<strong>مثال:</strong>
 
 <br><br>
 
-<button>
-جملة اسمية
-</button>
-
-<button>
-جملة فعلية
-</button>
-
-</div>
-
-
-
-
-<div class="question">
-
-المبتدأ يكون:
+الطالبُ مجتهدٌ.
 
 <br><br>
 
-<button>
-مرفوعًا
-</button>
-
-<button>
-منصوبًا
-</button>
-
-</div>
-
-
-<button class="finish" onclick="completeLesson()">
-✅ إتمام الدرس
-</button>
-
-</button>
-
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-<footer>
-
-لغتي لغة الضاد © 2026
+الطالبُ ← مبتدأ
 
 <br>
 
-المعلمة سمر رمضان | تطوير M11
+مجتهدٌ ← خبر
 
-</footer>
+</div>
+
+<p>
+المبتدأ هو الاسم الذي نتحدث عنه في الجملة،
+أما الخبر فهو الجزء الذي يخبرنا بشيء عن المبتدأ.
+</p>
+
+</section>
 
 
+<!-- أمثلة -->
 
-</body>
+<section class="lesson-card">
 
-</html> 
+<h2>💡 أمثلة سهلة</h2>
+
+<div class="example">
+<strong>السماءُ صافيةٌ.</strong>
+<br>
+السماءُ: مبتدأ
+<br>
+صافيةٌ: خبر
+</div>
+
+<div class="example">
+<strong>الولدُ نشيطٌ.</strong>
+<br>
+الولدُ: مبتدأ
+<br>
+نشيطٌ: خبر
+</div>
+
+<div class="example">
+<strong>المدرسةُ جميلةٌ.</strong>
+<br>
+المدرسةُ: مبتدأ
+<br>
+جميلةٌ: خبر
+</div>
+
+</section>
+
+
+<!-- الاختبار -->
+
+<section class="lesson-card">
+
+<h2>🧠 اختبر نفسك</h2>
+
+<p>
+أجب عن الأسئلة التالية ثم اضغط على
+<strong>تصحيح الاختبار</strong>.
+</p>
+
+
+<!-- سؤال 1 -->
+
+<div class="question">
+
+<h3>
+1. ما المبتدأ في الجملة:
+"الطالبُ مجتهدٌ"؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q1" value="a">
+مجتهدٌ
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="b">
+الطالبُ
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="c">
+الجملة
+</label>
+
+</div>
+
+
+<!-- سؤال 2 -->
+
+<div class="question">
+
+<h3>
+2. ما الخبر في الجملة:
+"السماءُ صافيةٌ"؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q2" value="a">
+السماءُ
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="b">
+صافيةٌ
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="c">
+لا يوجد خبر
+</label>
+
+</div>
+
+
+<!-- سؤال 3 -->
+
+<div class="question">
+
+<h3>
+3. الجملة الاسمية تتكون غالبًا من:
+</h3>
+
+<label class="option">
+<input type="radio" name="q3" value="a">
+فعل وفاعل
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="b">
+مبتدأ وخبر
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="c">
+حرف وفعل
+</label>
+
+</div>
+
+
+<!-- سؤال 4 -->
+
+<div class="question">
+
+<h3>
+4. ما المبتدأ في:
+"المدرسةُ جميلةٌ"؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q4" value="a">
+جميلةٌ
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="b">
+المدرسةُ
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="c">
+جميلة
+</label>
+
+</div>
+
+
+<!-- سؤال 5 -->
+
+<div class="question">
+
+<h3>
+5. ما الخبر في:
+"الولدُ نشيطٌ"؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q5" value="a">
+الولدُ
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="b">
+نشيطٌ
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="c">
+ال
+</label>
+
+</div>
+
+
+<button onclick="checkQuiz()" class="main-btn" style="border:0;cursor:pointer;">
+
+تصحيح الاختبار ✅
+
+</button>
+
+
+<div id="quizResult" class="quiz-result">
+
+<h2>نتيجتك 🎉</h2>
+
+<div id="score" class="score-number">0 / 5</div>
+
+<p id="resultMessage"></p>
+
+</div>
+
+</section>
+
+
+<!-- إكمال الدرس -->
+
+<section class="lesson-card complete-box">
+
+<h2>🏆 أنهيت الدرس؟</h2>
+
+<p>
+بعد مشاهدة الشرح وحل الاختبار،
+يمكنك تسجيل الدرس كمكتمل.
+</p>
+
+<br>
+
+<button onclick="completeLesson()" class="main-btn"
+style="border:0;cursor:pointer;">
+
+إكمال الدرس ✅
+
+</button>
+
+</section>
+
+</div>
+
+
+<!-- الشريط الجانبي -->
+
+<aside>
+
+<section class="lesson-card">
+
+<h2 class="side-title">
+📚 دروس أخرى
+</h2>
+
+<div class="lesson-list">
+
+<a href="lesson.html">
+📖 المبتدأ والخبر
+</a>
+
+<a href="lesson.html">
+✏️ أنواع الكلمة
+</a>
+
+<a href="lesson.html">
+📘 الجملة الاسمية
+</a>
+
+<a href="lesson.html">
+📝 علامات الإعراب
+</a>
+
+<a href="lesson.html">
+📚 مهارات القراءة
+</a>
+
+</div>
+
+</section>
+
+
+<section class="lesson-card">
+
+<h2 class="side-title">
+📊 تقدمك
+</h2>
+
+<p>
+نسبة إكمال هذا الدرس
+</p>
+
+<div class="progress-box">
+
+<div class="progress-bar">
+
+<div id="lessonProgress" class="progress-fill"></div>
+
+</ 
