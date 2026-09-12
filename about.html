@@ -198,7 +198,44 @@ text-align:center;
 تصميم وتطوير M11
 
 </footer>
+<script>
+document.addEventListener("click", function(e){
 
+  const link = e.target.closest("a");
+
+  if(!link) return;
+
+  const url = link.getAttribute("href");
+
+  if(
+    !url ||
+    url.startsWith("#") ||
+    url.startsWith("http") ||
+    url.startsWith("mailto:") ||
+    url.startsWith("javascript:")
+  ){
+    return;
+  }
+
+  if(
+    link.target === "_blank"
+  ){
+    return;
+  }
+
+  e.preventDefault();
+
+  document.body.style.opacity = "0";
+  document.body.style.transform = "translateY(5px)";
+  document.body.style.transition =
+    "opacity .18s ease, transform .18s ease";
+
+  setTimeout(function(){
+    window.location.href = url;
+  },180);
+
+});
+    </script>
 
 </body>
 
