@@ -2,502 +2,640 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>
-لوحة المعلمة | لغتي لغة الضاد
-</title>
+<title>لوحة المعلمة | لغتي لغة الضاد</title>
 
 <link rel="stylesheet" href="style-new.css">
 
-
 <style>
 
-
-.admin{
-
-width:90%;
-max-width:1200px;
-margin:40px auto;
-
+.teacher-page{
+    width:90%;
+    max-width:1200px;
+    margin:45px auto;
 }
 
-
-
-.admin-head{
-
-background:linear-gradient(135deg,#0f172a,#1e40af);
-
-color:white;
-
-padding:45px;
-
-border-radius:40px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
+.teacher-header{
+    background:white;
+    padding:40px;
+    border-radius:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    text-align:center;
+    margin-bottom:35px;
 }
 
-
-
-.admin-head img{
-
-width:130px;
-
+.teacher-avatar{
+    width:100px;
+    height:100px;
+    margin:auto;
+    border-radius:50%;
+    background:#eff6ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    margin-bottom:20px;
 }
 
-
-
-.admin-head h1{
-
-font-size:40px;
-
+.teacher-header h1{
+    color:#1e40af;
+    font-size:40px;
 }
 
-
-
-.admin-head span{
-
-color:#facc15;
-
+.teacher-header p{
+    color:#64748b;
+    font-size:19px;
+    line-height:2;
 }
 
-
-
-
-
-.cards-admin{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-margin-top:35px;
-
+.teacher-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:35px;
 }
 
-
-
-.admin-card{
-
-background:white;
-
-padding:30px;
-
-border-radius:30px;
-
-box-shadow:0 15px 35px #ddd;
-
-text-align:center;
-
+.stat{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,.07);
 }
 
-
-
-.admin-card h2{
-
-font-size:35px;
-
-color:#1e40af;
-
+.stat-icon{
+    font-size:40px;
 }
 
-
-
-
-.add-box{
-
-background:white;
-
-margin-top:40px;
-
-padding:40px;
-
-border-radius:35px;
-
-box-shadow:0 15px 35px #ddd;
-
+.stat-number{
+    font-size:35px;
+    font-weight:bold;
+    color:#1e40af;
+    margin:10px;
 }
 
-
-
-.add-box h2{
-
-color:#1e40af;
-
-margin-bottom:25px;
-
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:30px;
 }
 
-
-
-input,textarea,select{
-
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border-radius:15px;
-
-border:1px solid #ddd;
-
-font-size:16px;
-
-
+.panel{
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.07);
+    margin-bottom:30px;
 }
 
-
-
-textarea{
-
-height:120px;
-
+.panel h2{
+    color:#1e40af;
+    margin-bottom:25px;
 }
 
-
-
-
-.publish{
-
-background:#1e40af;
-
-color:white;
-
-border:none;
-
-padding:15px;
-
-width:100%;
-
-border-radius:20px;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.3s;
-
+.form-group{
+    margin-bottom:18px;
 }
 
-
-
-.publish:hover{
-
-background:#d4a017;
-
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
 }
 
-
-
-
-.lessons{
-
-margin-top:40px;
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px;
+    border:2px solid #e2e8f0;
+    border-radius:15px;
+    font-size:16px;
+    outline:none;
 }
 
-
-
-.lesson{
-
-background:#f8fafc;
-
-padding:25px;
-
-border-radius:25px;
-
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
 }
 
-
-
-.lesson h3{
-
-color:#1e40af;
-
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#1e40af;
 }
 
+.lesson-item{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:15px;
+    border-right:5px solid #1e40af;
+}
 
+.lesson-item h3{
+    color:#1e40af;
+    margin-bottom:8px;
+}
+
+.lesson-item p{
+    color:#64748b;
+    line-height:1.8;
+}
+
+.lesson-meta{
+    font-size:14px;
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.delete-btn{
+    border:0;
+    background:#fee2e2;
+    color:#b91c1c;
+    padding:10px 16px;
+    border-radius:12px;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+.empty{
+    text-align:center;
+    color:#64748b;
+    padding:30px;
+}
+
+@media(max-width:800px){
+
+    .teacher-stats{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .teacher-header h1{
+        font-size:30px;
+    }
+
+}
 
 </style>
 
-
 </head>
-
-
 
 <body>
 
-
 <nav class="navbar">
 
+<a href="index.html" class="brand">
 
-<div class="brand">
-
-<img src="logo.svg">
+<img src="logo.svg" alt="لغتي لغة الضاد">
 
 لغتي لغة الضاد
 
-</div>
-
+</a>
 
 <div class="nav-links">
 
 <a href="index.html">الرئيسية</a>
 
-<a href="courses.html">الكورسات</a>
+<a href="courses.html">المراحل الدراسية</a>
+
+<a href="student.html">لوحة الطالب</a>
 
 <a href="support.html">الدعم</a>
 
 </div>
 
-
 </nav>
 
 
+<main class="teacher-page">
 
 
+<section class="teacher-header">
 
-<div class="admin">
-
-
-
-<section class="admin-head">
-
-
-<div>
-
-<h1>
-لوحة المعلمة 👩‍🏫
-</h1>
-
-
-<h2>
-<span>
-سمر رمضان
-</span>
-</h2>
-
-
-<p>
-إدارة محتوى اللغة العربية
-</p>
-
+<div class="teacher-avatar">
+👩‍🏫
 </div>
 
+<h1>لوحة المعلمة</h1>
 
-<img src="logo.svg">
-
+<p>
+أهلًا بكِ يا <strong>المعلمة سمر رمضان</strong> 🌷
+<br>
+من هنا يمكنك إدارة دروس منصة لغتي لغة الضاد.
+</p>
 
 </section>
 
 
+<section class="teacher-stats">
+
+<div class="stat">
+
+<div class="stat-icon">📚</div>
+
+<div id="lessonsCount" class="stat-number">
+0
+</div>
+
+<div>عدد الدروس</div>
+
+</div>
 
 
+<div class="stat">
 
+<div class="stat-icon">🎓</div>
 
-
-<section class="cards-admin">
-
-
-<div class="admin-card">
-
-<h2>
+<div class="stat-number">
 6
-</h2>
+</div>
 
-<p>
-المراحل الدراسية
-</p>
+<div>المراحل الدراسية</div>
 
 </div>
 
 
+<div class="stat">
 
-<div class="admin-card">
+<div class="stat-icon">✨</div>
 
-<h2>
-35
-</h2>
-
-<p>
-عدد الدروس
-</p>
-
+<div class="stat-number">
+M11
 </div>
 
-
-
-
-<div class="admin-card">
-
-<h2>
-500+
-</h2>
-
-<p>
-الطلاب
-</p>
+<div>تطوير المنصة</div>
 
 </div>
-
 
 </section>
 
 
+<div class="dashboard-grid">
 
 
+<!-- إضافة درس -->
 
+<section class="panel">
 
+<h2>➕ إضافة درس جديد</h2>
 
-<section class="add-box">
+<form id="lessonForm">
 
+<div class="form-group">
 
-<h2>
-➕ إضافة درس جديد
-</h2>
+<label>
+الصف الدراسي
+</label>
 
+<select id="lessonGrade" required>
 
+<option value="">اختر الصف</option>
 
-<select>
-
-<option>
-اختر الصف
+<option value="الصف الرابع الابتدائي">
+الصف الرابع الابتدائي
 </option>
 
-<option>
-الصف الرابع
+<option value="الصف الخامس الابتدائي">
+الصف الخامس الابتدائي
 </option>
 
-<option>
-الصف الخامس
+<option value="الصف السادس الابتدائي">
+الصف السادس الابتدائي
 </option>
 
-<option>
-الصف السادس
-</option>
-
-<option>
+<option value="الأول المتوسط">
 الأول المتوسط
 </option>
 
-<option>
+<option value="الثاني المتوسط">
 الثاني المتوسط
 </option>
 
-<option>
+<option value="الثالث المتوسط">
 الثالث المتوسط
 </option>
 
 </select>
 
+</div>
 
 
+<div class="form-group">
 
-<input placeholder="عنوان الدرس">
+<label>
+اسم الدرس
+</label>
+
+<input
+type="text"
+id="lessonTitle"
+placeholder="مثال: المبتدأ والخبر"
+required
+>
+
+</div>
 
 
+<div class="form-group">
 
-<input placeholder="رابط الفيديو">
+<label>
+المادة
+</label>
+
+<input
+type="text"
+id="lessonSubject"
+placeholder="مثال: النحو"
+required
+>
+
+</div>
 
 
+<div class="form-group">
 
-<textarea placeholder="وصف الدرس"></textarea>
+<label>
+وصف الدرس
+</label>
+
+<textarea
+id="lessonDescription"
+placeholder="اكتب وصفًا مختصرًا للدرس..."
+required
+></textarea>
+
+</div>
 
 
+<button
+type="submit"
+class="main-btn"
+style="border:0;cursor:pointer;width:100%;"
+>
 
-
-<button class="publish">
-
-نشر الدرس
+حفظ الدرس 💾
 
 </button>
 
-
-
-</section>
-
-
-
-
-
-
-<section class="lessons">
-
-
-<div class="lesson">
-
-<h3>
-📘 المبتدأ والخبر
-</h3>
-
-<p>
-الصف الرابع الابتدائي
-</p>
-
-</div>
-
-
-
-<div class="lesson">
-
-<h3>
-📗 أنواع الكلمة
-</h3>
-
-<p>
-الصف الخامس الابتدائي
-</p>
-
-</div>
-
-
+</form>
 
 </section>
 
 
+<!-- الدروس -->
+
+<section class="panel">
+
+<h2>📚 الدروس المضافة</h2>
+
+<div id="lessonsContainer">
+
+</div>
+
+</section>
 
 
 </div>
 
-
-
+</main>
 
 
 <footer>
 
-لغتي لغة الضاد © 2026
+<p>لغتي لغة الضاد © 2026</p>
 
-<br>
-
-إشراف المعلمة سمر رمضان
-
-<br>
-
+<p>
+إشراف المعلمة سمر رمضان |
 تطوير M11
+</p>
 
 </footer>
 
 
+<script>
 
+const STORAGE_KEY = "m11Lessons";
+
+
+/* =========================
+   جلب الدروس
+========================= */
+
+function getLessons(){
+
+return JSON.parse(
+localStorage.getItem(STORAGE_KEY) || "[]"
+);
+
+}
+
+
+/* =========================
+   حفظ الدروس
+========================= */
+
+function saveLessons(lessons){
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(lessons)
+);
+
+}
+
+
+/* =========================
+   عرض الدروس
+========================= */
+
+function renderLessons(){
+
+const container =
+document.getElementById("lessonsContainer");
+
+const lessons = getLessons();
+
+document.getElementById("lessonsCount")
+.textContent = lessons.length;
+
+
+if(lessons.length === 0){
+
+container.innerHTML = `
+<div class="empty">
+
+<div style="font-size:50px;">📚</div>
+
+<p>
+لا توجد دروس مضافة حتى الآن.
+</p>
+
+<p>
+أضف أول درس من النموذج الموجود بجانبك.
+</p>
+
+</div>
+`;
+
+return;
+
+}
+
+
+container.innerHTML = "";
+
+
+lessons.forEach(function(lesson){
+
+const item =
+document.createElement("div");
+
+item.className = "lesson-item";
+
+item.innerHTML = `
+
+<div class="lesson-meta">
+${lesson.grade} • ${lesson.subject}
+</div>
+
+<h3>
+${lesson.title}
+</h3>
+
+<p>
+${lesson.description}
+</p>
+
+<button
+class="delete-btn"
+onclick="deleteLesson(${lesson.id})"
+>
+🗑️ حذف الدرس
+</button>
+
+`;
+
+container.appendChild(item);
+
+});
+
+}
+
+
+/* =========================
+   إضافة درس
+========================= */
+
+document
+.getElementById("lessonForm")
+.addEventListener("submit", function(event){
+
+event.preventDefault();
+
+
+const grade =
+document.getElementById("lessonGrade").value;
+
+const title =
+document.getElementById("lessonTitle").value.trim();
+
+const subject =
+document.getElementById("lessonSubject").value.trim();
+
+const description =
+document.getElementById("lessonDescription").value.trim();
+
+
+if(!grade || !title || !subject || !description){
+
+alert("من فضلك أكمل جميع البيانات.");
+
+return;
+
+}
+
+
+const lessons = getLessons();
+
+
+const newLesson = {
+
+id:Date.now(),
+
+grade:grade,
+
+title:title,
+
+subject:subject,
+
+description:description
+
+};
+
+
+lessons.push(newLesson);
+
+
+saveLessons(lessons);
+
+
+this.reset();
+
+
+renderLessons();
+
+
+alert("🎉 تم إضافة الدرس بنجاح!");
+
+});
+
+
+/* =========================
+   حذف درس
+========================= */
+
+function deleteLesson(id){
+
+const confirmed =
+confirm("هل تريد حذف هذا الدرس؟");
+
+if(!confirmed){
+
+return;
+
+}
+
+
+const lessons =
+getLessons().filter(function(lesson){
+
+return lesson.id !== id;
+
+});
+
+
+saveLessons(lessons);
+
+renderLessons();
+
+}
+
+
+/* =========================
+   تشغيل الصفحة
+========================= */
+
+renderLessons();
+
+</script>
 
 </body>
 
-</html>
+  </html>
